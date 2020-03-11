@@ -6,14 +6,25 @@ import android.text.InputFilter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
-import android.widget.EditText
-import android.widget.Spinner
+import android.widget.*
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import java.util.logging.Level
 
 
 class CreateCharacter : Fragment() {
+
+    //Buttons
+    private lateinit var createCharacter: Button
+
+    //Spinners
+    private lateinit var raceSpinner: Spinner
+    private lateinit var classSpinner: Spinner
+    private lateinit var backgroundSpinner: Spinner
+    private lateinit var levelSpinner: Spinner
+
+    //TextBoxes
+    private lateinit var nameText: EditText
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -22,47 +33,57 @@ class CreateCharacter : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.create_character, container, false)
 
-        raceSpinner(view)
-        classSpinner(view)
-        backgroundSpinner(view)
-        levelSpinner(view)
+        nameText = view.findViewById(R.id.CharacterName)
+        raceSpinner = view.findViewById(R.id.RaceSpinner)
+        classSpinner = view.findViewById(R.id.ClassSpinner)
+        backgroundSpinner = view.findViewById(R.id.BackgroundSpinner)
+        levelSpinner = view.findViewById(R.id.LevelsSpinner)
+        createCharacter = view.findViewById(R.id.ConfirmCharatcerButton)
+
+        raceSpinner()
+        classSpinner()
+        backgroundSpinner()
+        levelSpinner()
+
+        createCharacter.setOnClickListener {
+
+
+
+            view.findNavController().navigate(R.id.CreateCharacterToCharacterSheet)
+        }
 
         return view
     }
 
-    fun raceSpinner(view: View){
-        val RaceSpinner = view.findViewById<Spinner>(R.id.RaceSpinner)
-        var list = resources.getStringArray(R.array.races)
+    fun raceSpinner(){
+        val list = resources.getStringArray(R.array.races)
 
         val adapter = ArrayAdapter(activity!!.applicationContext, android.R.layout.simple_spinner_item, list)
 
-        RaceSpinner.adapter = adapter
+        raceSpinner.adapter = adapter
     }
 
-    fun classSpinner(view: View){
-        val ClassSpinner = view.findViewById<Spinner>(R.id.ClassSpinner)
-        var list = resources.getStringArray(R.array.classes)
+    fun classSpinner(){
+        val list = resources.getStringArray(R.array.classes)
 
         val adapter = ArrayAdapter(activity!!.applicationContext, android.R.layout.simple_spinner_item, list)
 
-        ClassSpinner.adapter = adapter
+        classSpinner.adapter = adapter
     }
 
-    fun backgroundSpinner(view: View){
-        val BackgroundSpinner = view.findViewById<Spinner>(R.id.BackgroundSpinner)
-        var list = resources.getStringArray(R.array.backgrounds)
+    fun backgroundSpinner(){
+        val list = resources.getStringArray(R.array.backgrounds)
 
         val adapter = ArrayAdapter(activity!!.applicationContext, android.R.layout.simple_spinner_item, list)
 
-        BackgroundSpinner.adapter = adapter
+        backgroundSpinner.adapter = adapter
     }
 
-    fun levelSpinner(view: View){
-        val LevelSpinner = view.findViewById<Spinner>(R.id.LevelsSpinner)
-        var list = resources.getStringArray(R.array.levels)
+    fun levelSpinner(){
+        val list = resources.getStringArray(R.array.levels)
 
         val adapter = ArrayAdapter(activity!!.applicationContext, android.R.layout.simple_spinner_item, list)
 
-        LevelSpinner.adapter = adapter
+        levelSpinner.adapter = adapter
     }
 }

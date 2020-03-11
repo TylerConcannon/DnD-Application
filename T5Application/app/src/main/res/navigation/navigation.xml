@@ -26,5 +26,14 @@
     <fragment
         android:id="@+id/createCharacter"
         android:name="com.t5application.CreateCharacter"
-        android:label="CreateCharacter" />
+        android:label="CreateCharacter" >
+        <action
+            android:id="@+id/CreateCharacterToCharacterSheet"
+            app:destination="@id/characterSheet" />
+    </fragment>
+    <fragment
+        android:id="@+id/characterSheet"
+        android:name="com.t5application.CharacterSheet"
+        android:label="character_sheet"
+        tools:layout="@layout/character_sheet" />
 </navigation>
