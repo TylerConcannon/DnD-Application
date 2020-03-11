@@ -1,7 +1,8 @@
-package com.t5application
+package com.t5application.pages
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.t5application.R
 
 class MainActivity : AppCompatActivity() {
 

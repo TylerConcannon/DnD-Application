@@ -3,8 +3,8 @@ package com.t5application.character_classes
 import com.t5application.character_classes.classes.Class
 import com.t5application.character_classes.races.Race
 
-class Character(var name: String, var level: Int = 1, var experience: Int = 0, var charRace: Race, var charClass: Class,
-                         var strAS: Int, var dexAS: Int, var constAS: Int, var intAS: Int, var wisAS: Int, var charAS: Int){
+class Character(var name: String, var level: Int, var experience: Int, var charRace: Race, var charClass: Class,
+                         var strAS: Int = 10, var dexAS: Int = 10, var constAS: Int = 10, var intAS: Int = 10, var wisAS: Int = 10, var charAS: Int = 10){
 
     var strength: Int = -6
         get() {

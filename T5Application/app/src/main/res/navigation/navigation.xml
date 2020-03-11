@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/playerDMChoice"
-        android:name="com.t5application.PlayerDMChoice"
+        android:name="com.t5application.pages.PlayerDMChoice"
         android:label="player_dm_choice"
         tools:layout="@layout/player_dm_choice" >
         <action
@@ -16,24 +16,28 @@
     </fragment>
     <fragment
         android:id="@+id/playerCharacterRecyclerView"
-        android:name="com.t5application.CharacterRecyclerView"
+        android:name="com.t5application.pages.player.CharacterRecyclerView"
         android:label="fragment_player_character_recycler_view"
         tools:layout="@layout/character_recycler_view" >
         <action
             android:id="@+id/CharacterRecyclerViewToCreateCharacter"
-            app:destination="@id/createCharacter" />
+            app:destination="@id/createCharacter"
+            app:popUpTo="@id/playerCharacterRecyclerView"
+            app:popUpToInclusive="false" />
     </fragment>
     <fragment
         android:id="@+id/createCharacter"
-        android:name="com.t5application.CreateCharacter"
+        android:name="com.t5application.pages.player.CreateCharacter"
         android:label="CreateCharacter" >
         <action
             android:id="@+id/CreateCharacterToCharacterSheet"
-            app:destination="@id/characterSheet" />
+            app:destination="@id/characterSheet"
+            app:popUpTo="@id/playerCharacterRecyclerView"
+            app:popUpToInclusive="false" />
     </fragment>
     <fragment
         android:id="@+id/characterSheet"
-        android:name="com.t5application.CharacterSheet"
+        android:name="com.t5application.pages.player.CharacterSheet"
         android:label="character_sheet"
         tools:layout="@layout/character_sheet" />
 </navigation>

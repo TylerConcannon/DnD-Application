@@ -6,7 +6,7 @@
     android:layout_height="fill_parent"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".PlayerDMChoice">
+    tools:context=".pages.PlayerDMChoice">
 
     <Button
         android:id="@+id/PlayerButton"
