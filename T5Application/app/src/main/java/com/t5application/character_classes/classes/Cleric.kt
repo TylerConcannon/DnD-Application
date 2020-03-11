@@ -1,5 +1,5 @@
 package com.t5application.character_classes.classes
 
-class Cleric{
+class Cleric: Class(){
 
 }
