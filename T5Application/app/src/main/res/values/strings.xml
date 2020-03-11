@@ -4,22 +4,26 @@
     <string name="selected_item">Selected item:</string>
 
     <string-array name="races">
+        <item>Dwarf</item>
         <item>Elf</item>
+        <item>Halfling</item>
         <item>Human</item>
-        <item>Orc</item>
     </string-array>
 
     <string-array name="classes">
-        <item>Bard</item>
-        <item>Warlock</item>
-        <item>Barbarian</item>
+        <item>Cleric</item>
+        <item>Fighter</item>
+        <item>Rogue</item>
         <item>Wizard</item>
     </string-array>
 
     <string-array name="backgrounds">
-        <item>Soldier</item>
-        <item>Artisan</item>
+        <item>Acolyte</item>
+        <item>Criminal</item>
+        <item>Folk Hero</item>
         <item>Noble</item>
+        <item>Sage</item>
+        <item>Soldier</item>
     </string-array>
 
     <string-array name="levels">
@@ -44,4 +48,7 @@
         <item>19</item>
         <item>20</item>
     </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
