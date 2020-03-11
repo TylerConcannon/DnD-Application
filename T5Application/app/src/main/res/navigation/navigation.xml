@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/playerDMChoice">
+
+    <fragment
+        android:id="@+id/playerDMChoice"
+        android:name="com.t5application.PlayerDMChoice"
+        android:label="player_dm_choice"
+        tools:layout="@layout/player_dm_choice" >
+        <action
+            android:id="@+id/PlayerDMChoiceToPlayerRecyclerView"
+            app:destination="@id/playerCharacterRecyclerView" />
+    </fragment>
+    <fragment
+        android:id="@+id/playerCharacterRecyclerView"
+        android:name="com.t5application.CharacterRecyclerView"
+        android:label="fragment_player_character_recycler_view"
+        tools:layout="@layout/character_recycler_view" >
+        <action
+            android:id="@+id/CharacterRecyclerViewToCreateCharacter"
+            app:destination="@id/createCharacter" />
+    </fragment>
+    <fragment
+        android:id="@+id/createCharacter"
+        android:name="com.t5application.CreateCharacter"
+        android:label="CreateCharacter" />
+</navigation>

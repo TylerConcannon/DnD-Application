@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    tools:context=".PlayerDMChoice">
+
+    <EditText
+        android:id="@+id/CharacterName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        app:layout_constraintBottom_toBottomOf="@+id/NameText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/RaceSpinner"
+        app:layout_constraintTop_toTopOf="@+id/NameText" />
+
+    <Spinner
+        android:id="@+id/RaceSpinner"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:dropDownWidth="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/RaceText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/ClassSpinner"
+        app:layout_constraintTop_toTopOf="@+id/RaceText" />
+
+    <Spinner
+        android:id="@+id/ClassSpinner"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/ClassText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/BackgroundSpinner"
+        app:layout_constraintTop_toTopOf="@+id/ClassText" />
+
+    <Spinner
+        android:id="@+id/BackgroundSpinner"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/BackgroundText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/BackgroundText"
+        app:layout_constraintTop_toTopOf="@+id/BackgroundText" />
+
+    <Spinner
+        android:id="@+id/LevelsSpinner"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/LevelText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.61"
+        app:layout_constraintStart_toStartOf="@+id/BackgroundSpinner"
+        app:layout_constraintTop_toTopOf="@+id/LevelText" />
+
+    <TextView
+        android:id="@+id/NameText"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginTop="100dp"
+        android:text="Name:"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@+id/BackgroundText"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/RaceText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Race:"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@+id/BackgroundText"
+        app:layout_constraintTop_toBottomOf="@+id/NameText" />
+
+    <TextView
+        android:id="@+id/ClassText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Class:"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@+id/BackgroundText"
+        app:layout_constraintTop_toBottomOf="@+id/RaceText" />
+
+    <TextView
+        android:id="@+id/BackgroundText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:text="Background:"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ClassText" />
+
+    <TextView
+        android:id="@+id/LevelText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Level:"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@+id/BackgroundText"
+        app:layout_constraintTop_toBottomOf="@+id/BackgroundText" />
+
+    <Button
+        android:id="@+id/ConfirmCharatcerButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="Create Character"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/LevelText" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
