@@ -13,6 +13,9 @@
         <action
             android:id="@+id/PlayerDMChoiceToPlayerRecyclerView"
             app:destination="@id/playerCharacterRecyclerView" />
+        <action
+            android:id="@+id/PlayerDMChoiceToDMRecyclerView"
+            app:destination="@id/DMRecyclerView" />
     </fragment>
     <fragment
         android:id="@+id/playerCharacterRecyclerView"
@@ -40,4 +43,49 @@
         android:name="com.t5application.pages.player.CharacterSheet"
         android:label="character_sheet"
         tools:layout="@layout/character_sheet" />
+    <fragment
+        android:id="@+id/DMRecyclerView"
+        android:name="com.t5application.pages.dm.DMRecyclerView"
+        android:label="DMRecyclerView" >
+        <action
+            android:id="@+id/DMRecyclerViewToCreateContent"
+            app:destination="@id/createContent" />
+    </fragment>
+    <fragment
+        android:id="@+id/createContent"
+        android:name="com.t5application.pages.dm.CreateContent"
+        android:label="CreateContent" >
+        <action
+            android:id="@+id/CreateContentToCreateNPC"
+            app:destination="@id/createNPC" />
+        <action
+            android:id="@+id/CreateContentToCreateEncounter"
+            app:destination="@id/createEncounter" />
+        <action
+            android:id="@+id/CreateContentToCreateTown"
+            app:destination="@id/createTown" />
+        <action
+            android:id="@+id/CreateContentToCreateAdventure"
+            app:destination="@id/createAdventure" />
+    </fragment>
+    <fragment
+        android:id="@+id/createNPC"
+        android:name="com.t5application.pages.dm.content.CreateNPC"
+        android:label="create_npc"
+        tools:layout="@layout/create_npc" />
+    <fragment
+        android:id="@+id/createEncounter"
+        android:name="com.t5application.pages.dm.content.CreateEncounter"
+        android:label="create_encounter"
+        tools:layout="@layout/create_encounter" />
+    <fragment
+        android:id="@+id/createTown"
+        android:name="com.t5application.pages.dm.content.CreateTown"
+        android:label="create_town"
+        tools:layout="@layout/create_town" />
+    <fragment
+        android:id="@+id/createAdventure"
+        android:name="com.t5application.pages.dm.content.CreateAdventure"
+        android:label="fragment_create_adventure"
+        tools:layout="@layout/create_adventure" />
 </navigation>

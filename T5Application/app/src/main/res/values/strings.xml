@@ -3,6 +3,7 @@
     <string name="app_name">T^5 TableTop Toolkit</string>
     <string name="selected_item">Selected item:</string>
 
+    <!-- Player Character Lists -->
     <string-array name="races">
         <item>Dwarf</item>
         <item>Elf</item>
@@ -47,6 +48,121 @@
         <item>18</item>
         <item>19</item>
         <item>20</item>
+    </string-array>
+
+    <!-- Random NPC Lists -->
+    <string-array name="occupations">
+        <item>None</item>
+        <item>Acolyte</item>
+        <item>Blacksmith</item>
+        <item>Cleric</item>
+        <item>Criminal</item>
+        <item>Farmer</item>
+        <item>Fighter</item>
+        <item>Folk Hero</item>
+        <item>Gravekeeper</item>
+        <item>Herbolist</item>
+        <item>Hermit</item>
+        <item>Innkeeper</item>
+        <item>Merchant</item>
+        <item>Musician</item>
+        <item>Noble</item>
+        <item>Potionseller</item>
+        <item>Priest</item>
+        <item>Rogue</item>
+        <item>Sage</item>
+        <item>Soldier</item>
+        <item>Tavern Owner</item>
+        <item>Wizard</item>
+    </string-array>
+
+    <!-- Random Town Lists -->
+    <string-array name="townSizes">
+        <item>Village</item>
+        <item>Town</item>
+        <item>City</item>
+        <item></item>
+    </string-array>
+
+    <string-array name="terrains">
+        <item>Forest</item>
+        <item>Hills</item>
+        <item>Jungle</item>
+        <item>Mountains</item>
+        <item>Plains</item>
+        <item>Snowy</item>
+        <item>Swamp</item>
+    </string-array>
+
+    <string-array name="buildings">
+        <item>Apothecary</item>
+        <item>Barracks</item>
+        <item>Castle/House</item>
+        <item>Church</item>
+        <item>Farm</item>
+        <item>Graveyard</item>
+        <item>Greenhouse</item>
+        <item>Inn</item>
+        <item>Shop/Cart</item>
+        <item>Smithery</item>
+        <item>Tavern</item>
+        <item>Temple</item>
+        <item>Tower</item>
+        <item>Training Grounds</item>
+        <item>University</item>
+    </string-array>
+
+    <string-array name="politics">
+        <item>Celebratory</item>
+        <item>Elegant</item>
+        <item>Festive</item>
+        <item>Outgoing</item>
+        <item>Paranoid</item>
+        <item>Peaceful</item>
+        <item>Poverty</item>
+        <item>Shifty</item>
+        <item>Tense</item>
+        <item>Unbeat</item>
+        <item>War</item>
+    </string-array>
+
+    <!-- Random Adventure Lists -->
+    <string-array name="length">
+        <item>Short</item>
+        <item>Medium</item>
+        <item>Long</item>
+    </string-array>
+
+    <string-array name="questType">
+        <item>Fetch</item>
+        <item>Kill</item>
+        <item>Escort</item>
+    </string-array>
+
+    <string-array name="encounterNumber">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+    <!-- Random Encounter Lists -->
+    <string-array name="enemyNumber">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>
+
+    <string-array name="enemyTypes">
+        <item>Short</item>
+        <item>Medium</item>
+        <item>Long</item>
     </string-array>
 
     <!-- TODO: Remove or change this placeholder text -->
