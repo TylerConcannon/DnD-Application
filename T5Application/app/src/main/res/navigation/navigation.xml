@@ -57,35 +57,111 @@
         android:label="CreateContent" >
         <action
             android:id="@+id/CreateContentToCreateNPC"
-            app:destination="@id/createNPC" />
+            app:destination="@id/CreateContent"
+            app:popUpToInclusive="false" />
         <action
             android:id="@+id/CreateContentToCreateEncounter"
-            app:destination="@id/createEncounter" />
+            app:destination="@id/CreateContent"
+            app:popUpToInclusive="false" />
         <action
             android:id="@+id/CreateContentToCreateTown"
-            app:destination="@id/createTown" />
+            app:destination="@id/CreateContent"
+            app:popUpToInclusive="false" />
         <action
             android:id="@+id/CreateContentToCreateAdventure"
-            app:destination="@id/createAdventure" />
+            app:destination="@id/CreateContent"
+            app:popUpToInclusive="false" />
     </fragment>
-    <fragment
-        android:id="@+id/createNPC"
-        android:name="com.t5application.pages.dm.content.CreateNPC"
-        android:label="create_npc"
-        tools:layout="@layout/create_npc" />
-    <fragment
-        android:id="@+id/createEncounter"
-        android:name="com.t5application.pages.dm.content.CreateEncounter"
-        android:label="create_encounter"
-        tools:layout="@layout/create_encounter" />
-    <fragment
-        android:id="@+id/createTown"
-        android:name="com.t5application.pages.dm.content.CreateTown"
-        android:label="create_town"
-        tools:layout="@layout/create_town" />
-    <fragment
-        android:id="@+id/createAdventure"
-        android:name="com.t5application.pages.dm.content.CreateAdventure"
-        android:label="fragment_create_adventure"
-        tools:layout="@layout/create_adventure" />
+    <navigation
+        android:id="@+id/CreateContent"
+        app:startDestination="@id/createAdventure" >
+        <fragment
+            android:id="@+id/createNPC"
+            android:name="com.t5application.pages.dm.content.npc.CreateNPC"
+            android:label="create_npc"
+            tools:layout="@layout/create_npc">
+            <action
+                android:id="@+id/CreateNPCToNPCViewer"
+                app:destination="@id/ContentViewers"
+                app:popUpTo="@id/createContent"
+                app:popUpToInclusive="false" />
+        </fragment>
+        <fragment
+            android:id="@+id/createEncounter"
+            android:name="com.t5application.pages.dm.content.encounter.CreateEncounter"
+            android:label="create_encounter"
+            tools:layout="@layout/create_encounter">
+            <action
+                android:id="@+id/CreateEncounterToEncounterViewer"
+                app:destination="@id/ContentViewers"
+                app:popUpTo="@id/createContent"
+                app:popUpToInclusive="false" />
+        </fragment>
+        <fragment
+            android:id="@+id/createTown"
+            android:name="com.t5application.pages.dm.content.town.CreateTown"
+            android:label="create_town"
+            tools:layout="@layout/create_town">
+            <action
+                android:id="@+id/CreateTownToTownViewer"
+                app:destination="@id/ContentViewers"
+                app:popUpTo="@id/createContent"
+                app:popUpToInclusive="false" />
+        </fragment>
+        <fragment
+            android:id="@+id/createAdventure"
+            android:name="com.t5application.pages.dm.content.adventure.CreateAdventure"
+            android:label="fragment_create_adventure"
+            tools:layout="@layout/create_adventure">
+            <action
+                android:id="@+id/CreateAdventureToAdventureViewer"
+                app:destination="@id/ContentViewers"
+                app:popUpTo="@id/createContent"
+                app:popUpToInclusive="false" />
+        </fragment>
+    </navigation>
+    <navigation
+        android:id="@+id/ContentViewers"
+        app:startDestination="@id/adventureViewer" >
+        <fragment
+            android:id="@+id/adventureViewer"
+            android:name="com.t5application.pages.dm.content.adventure.AdventureViewer"
+            android:label="adventure_viewer"
+            tools:layout="@layout/adventure_viewer">
+            <action
+                android:id="@+id/TownViewerToDMRecyclerView"
+                app:destination="@id/DMRecyclerView"
+                app:popUpToInclusive="false" />
+        </fragment>
+        <fragment
+            android:id="@+id/townViewer"
+            android:name="com.t5application.pages.dm.content.town.TownViewer"
+            android:label="town_viewer"
+            tools:layout="@layout/town_viewer">
+            <action
+                android:id="@+id/TownViewerToDMRecyclerView"
+                app:destination="@id/DMRecyclerView"
+                app:popUpToInclusive="false" />
+        </fragment>
+        <fragment
+            android:id="@+id/encounterViewer"
+            android:name="com.t5application.pages.dm.content.encounter.EncounterViewer"
+            android:label="encounter_viewer"
+            tools:layout="@layout/encounter_viewer">
+            <action
+                android:id="@+id/EncounterViewerToDMRecyclerView"
+                app:destination="@id/DMRecyclerView"
+                app:popUpToInclusive="false" />
+        </fragment>
+        <fragment
+            android:id="@+id/NPCViewer"
+            android:name="com.t5application.pages.dm.content.npc.NPCViewer"
+            android:label="npc_viewer"
+            tools:layout="@layout/npc_viewer">
+            <action
+                android:id="@+id/NPCViewerToCMRecyclerView"
+                app:destination="@id/DMRecyclerView"
+                app:popUpToInclusive="false" />
+        </fragment>
+    </navigation>
 </navigation>

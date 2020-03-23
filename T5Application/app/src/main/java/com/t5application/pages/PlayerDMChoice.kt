@@ -22,6 +22,8 @@ class PlayerDMChoice : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.player_dm_choice, container, false)
 
+        activity?.title =  "Main Menu"
+
         PlayerButton = view.findViewById(R.id.PlayerButton)
         DMButton = view.findViewById(R.id.DMButton)
 

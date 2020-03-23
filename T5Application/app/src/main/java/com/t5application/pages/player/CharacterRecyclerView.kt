@@ -20,6 +20,8 @@ class CharacterRecyclerView : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.character_recycler_view, container, false)
 
+        activity?.title =  "Character List"
+
         AddCharacter = view.findViewById(R.id.AddCharacterButton)
 
         AddCharacter.setOnClickListener {

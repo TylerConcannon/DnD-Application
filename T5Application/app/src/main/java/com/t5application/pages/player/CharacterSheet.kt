@@ -19,6 +19,8 @@ class CharacterSheet : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.character_sheet, container, false)
 
+        activity?.title =  "Character Sheet"
+
         return view
     }
 

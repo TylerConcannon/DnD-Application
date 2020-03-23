@@ -1,4 +1,4 @@
-package com.t5application.pages.dm.content
+package com.t5application.pages.dm.content.town
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,14 +8,17 @@ import android.view.ViewGroup
 
 import com.t5application.R
 
-class CreateNPC : Fragment() {
+class TownViewer : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.create_npc, container, false)
-    }
+        val view =  inflater.inflate(R.layout.town_viewer, container, false)
 
+        activity?.title = "Town"
+
+        return view;
+    }
 }

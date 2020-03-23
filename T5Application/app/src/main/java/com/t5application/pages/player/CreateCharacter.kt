@@ -34,6 +34,8 @@ class CreateCharacter : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.create_character, container, false)
 
+        activity?.title =  "Create Character"
+
         nameText = view.findViewById(R.id.CharacterName)
         raceSpinner = view.findViewById(R.id.RaceSpinner)
         classSpinner = view.findViewById(R.id.ClassSpinner)

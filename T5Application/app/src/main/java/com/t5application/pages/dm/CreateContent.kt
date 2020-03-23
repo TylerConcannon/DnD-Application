@@ -24,6 +24,8 @@ class CreateContent : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.create_content, container, false)
 
+        activity?.title =  "Create Content"
+
         npcButton = view.findViewById(R.id.randomNPC)
         townButton = view.findViewById(R.id.randomTown)
         adventureButton = view.findViewById(R.id.randomAdventure)

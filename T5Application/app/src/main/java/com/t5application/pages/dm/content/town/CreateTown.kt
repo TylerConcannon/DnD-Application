@@ -1,31 +1,32 @@
-package com.t5application.pages.dm
+package com.t5application.pages.dm.content.town
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
+import android.widget.Button
 import androidx.navigation.findNavController
+
 import com.t5application.R
 
-class DMRecyclerView : Fragment() {
+class CreateTown : Fragment() {
 
-    private lateinit var AddContent: ImageView
+    private lateinit var generate: Button
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.dm_recycler_view, container, false)
+        val view = inflater.inflate(R.layout.create_town, container, false)
 
-        activity?.title =  "Content List"
+        activity?.title =  "Create Town"
 
-        AddContent = view.findViewById(R.id.AddContentButton)
+        generate = view.findViewById(R.id.confirmTownButton)
 
-        AddContent.setOnClickListener {
-            view.findNavController().navigate(R.id.DMRecyclerViewToCreateContent)
+        generate.setOnClickListener {
+            view.findNavController().navigate(R.id.CreateTownToTownViewer)
         }
 
         return view
