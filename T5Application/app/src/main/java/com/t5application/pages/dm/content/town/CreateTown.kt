@@ -5,14 +5,23 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import android.widget.Button
+import android.widget.Spinner
 import androidx.navigation.findNavController
 
 import com.t5application.R
 
 class CreateTown : Fragment() {
 
+    //Buttons
     private lateinit var generate: Button
+
+    //Spinners
+    private lateinit var sizeSpinner: Spinner
+    private lateinit var terrainSpinner: Spinner
+    private lateinit var buildingSpinner: Spinner
+    private lateinit var politicsSpinner: Spinner
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -23,6 +32,23 @@ class CreateTown : Fragment() {
 
         activity?.title =  "Create Town"
 
+        sizeSpinner = view.findViewById(R.id.sizeSpinner)
+        terrainSpinner = view.findViewById(R.id.terrainSpinner)
+        buildingSpinner = view.findViewById(R.id.buildingSpinner)
+        politicsSpinner = view.findViewById(R.id.politicsSpinner)
+
+        val sizes = resources.getStringArray(R.array.townSizes)
+        sizeSpinner(sizes)
+
+        val terrains = resources.getStringArray(R.array.terrains)
+        terrainSpinner(terrains)
+
+        val buildings = resources.getStringArray(R.array.buildings)
+        buildingSpinner(buildings)
+
+        val politics = resources.getStringArray(R.array.politics)
+        politicsSpinner(politics)
+
         generate = view.findViewById(R.id.confirmTownButton)
 
         generate.setOnClickListener {
@@ -30,6 +56,30 @@ class CreateTown : Fragment() {
         }
 
         return view
+    }
+
+    private fun sizeSpinner(sizes: Array<String>){
+        val adapter = ArrayAdapter(requireActivity().applicationContext, android.R.layout.simple_selectable_list_item, sizes)
+
+        sizeSpinner.adapter = adapter
+    }
+
+    private fun terrainSpinner(terrains: Array<String>){
+        val adapter = ArrayAdapter(requireActivity().applicationContext, android.R.layout.simple_selectable_list_item, terrains)
+
+        terrainSpinner.adapter = adapter
+    }
+
+    private fun buildingSpinner(buildings: Array<String>){
+        val adapter = ArrayAdapter(requireActivity().applicationContext, android.R.layout.simple_selectable_list_item, buildings)
+
+        buildingSpinner.adapter = adapter
+    }
+
+    private fun politicsSpinner(politics: Array<String>){
+        val adapter = ArrayAdapter(requireActivity().applicationContext, android.R.layout.simple_selectable_list_item, politics)
+
+        politicsSpinner.adapter = adapter
     }
 
 }

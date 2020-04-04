@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
 import com.t5application.R
 import com.t5application.character_classes.Character
@@ -66,25 +68,25 @@ class CreateCharacter : Fragment() {
     }
 
     private fun raceSpinner(races: Array<String>){
-        val adapter = ArrayAdapter(activity!!.applicationContext, android.R.layout.simple_selectable_list_item, races)
+        val adapter = ArrayAdapter(requireActivity().applicationContext, android.R.layout.simple_selectable_list_item, races)
 
         raceSpinner.adapter = adapter
     }
 
     private fun classSpinner(classes: Array<String>){
-        val adapter = ArrayAdapter(activity!!.applicationContext, android.R.layout.simple_selectable_list_item, classes)
+        val adapter = ArrayAdapter(requireActivity().applicationContext, android.R.layout.simple_selectable_list_item, classes)
 
         classSpinner.adapter = adapter
     }
 
     private fun backgroundSpinner(backgrounds: Array<String>){
-        val adapter = ArrayAdapter(activity!!.applicationContext, android.R.layout.simple_selectable_list_item, backgrounds)
+        val adapter = ArrayAdapter(requireActivity().applicationContext, android.R.layout.simple_selectable_list_item, backgrounds)
 
         backgroundSpinner.adapter = adapter
     }
 
     private fun levelSpinner(levels: Array<String>){
-        val adapter = ArrayAdapter(activity!!.applicationContext, android.R.layout.simple_selectable_list_item, levels)
+        val adapter = ArrayAdapter(requireActivity().applicationContext, android.R.layout.simple_selectable_list_item, levels)
 
         levelSpinner.adapter = adapter
     }
