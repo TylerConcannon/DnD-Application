@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.t5application.R
 import com.t5application.dm_classes.Town
+import com.t5application.pages.dm.content.town.TownDetailViewModel
 import com.t5application.pages.dm.content.town.TownListViewModel
 
 class DMRecyclerView : Fragment() {
@@ -28,6 +29,8 @@ class DMRecyclerView : Fragment() {
     private var adapter: TownAdapter? = TownAdapter(emptyList())
 
     private val townListViewModel: TownListViewModel by activityViewModels()
+
+    private val townDetailViewModel: TownDetailViewModel by activityViewModels()
 
     /*interface Callbacks{
         fun onTownSelected(townId: Int)
@@ -117,7 +120,8 @@ class DMRecyclerView : Fragment() {
         }
 
         override fun onClick(v: View?) {
-            //callbacks?.onTownSelected(town.id)
+            townDetailViewModel.idOfNavigation = town.id
+            v?.findNavController()?.navigate(R.id.DMRecyclerViewToTownView)
         }
     }
 

@@ -85,17 +85,4 @@ class TownViewer : Fragment() {
         )
     }
 
-    companion object{
-
-        fun newInstance(townId: UUID):TownViewer{
-            val args = Bundle().apply {
-                putSerializable("townId", townId)
-            }
-            return TownViewer().apply {
-                arguments = args
-            }
-        }
-
-    }
-
 }
