@@ -1,4 +1,4 @@
-package com.t5application.database
+package com.t5application.database.townDB
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
@@ -20,5 +20,5 @@ interface TownDao {
     fun insertTown(town: Town)
 
     @Delete
-    fun deleteTown(town:Town)
+    fun deleteTown(town: Town)
 }

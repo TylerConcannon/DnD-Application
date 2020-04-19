@@ -1,16 +1,32 @@
 package com.t5application.dm_classes
 
-class NPC(var npcName: String, var npcRace: String, var npcOccupation: String) {
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+import java.util.*
+
+@Entity(tableName = "npc_database")
+class NPC(@PrimaryKey val id: UUID = UUID.randomUUID(),
+          var npcName: String = "NPC_NAME",
+          var npcRace: String = "NPC_RACE",
+          var npcOccupation: String = "NPC_OCCUPATION") {
+
+    fun getID(): UUID{
+        return id
+    }
 
     fun getName(): String {
-        return npcName;
+        return npcName
     }
 
     fun getRace(): String {
-        return npcRace;
+        return npcRace
     }
 
     fun getOccupation(): String {
-        return npcOccupation;
+        return npcOccupation
+    }
+
+    fun printNPC(){
+        println("Name: $npcName Race: $npcRace Occupation: $npcOccupation ID: ${id.toString()}")
     }
 }

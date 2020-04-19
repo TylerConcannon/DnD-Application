@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
-import com.t5application.database.TownRepository
+import com.t5application.database.townDB.TownRepository
 import com.t5application.dm_classes.Town
 import java.util.*
 

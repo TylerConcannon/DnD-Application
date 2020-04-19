@@ -1,4 +1,4 @@
-package com.t5application.database
+package com.t5application.database.townDB
 
 import android.content.Context
 import androidx.lifecycle.LiveData
@@ -49,12 +49,14 @@ class TownRepository private constructor(context: Context) {
 
         fun initialize(context: Context){
             if(INSTANCE == null){
-                INSTANCE = TownRepository(context)
+                INSTANCE =
+                    TownRepository(context)
             }
         }
 
-        fun get(): TownRepository{
-            return INSTANCE ?: throw IllegalStateException("Town Database must be initialized")
+        fun get(): TownRepository {
+            return INSTANCE
+                ?: throw IllegalStateException("Town Database must be initialized")
         }
 
     }

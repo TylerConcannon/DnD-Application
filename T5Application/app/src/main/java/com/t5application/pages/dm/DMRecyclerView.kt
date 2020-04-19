@@ -32,22 +32,6 @@ class DMRecyclerView : Fragment() {
 
     private val townDetailViewModel: TownDetailViewModel by activityViewModels()
 
-    /*interface Callbacks{
-        fun onTownSelected(townId: Int)
-    }
-
-    private var callbacks:Callbacks? = null*/
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        //callbacks = context as Callbacks?
-    }
-
-    override fun onDetach() {
-        super.onDetach()
-        //callbacks = null
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

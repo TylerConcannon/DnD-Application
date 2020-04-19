@@ -7,11 +7,11 @@ import java.util.*
 
 @Entity(tableName = "town_database")
 data class Town(@PrimaryKey val id: UUID = UUID.randomUUID(),
-                var townName: String = "NAME",
-                var townSize: String = "SIZE",
-                var townTerrain: String = "TERRAIN",
-                var townBuildings: String = "BUILDINGS",
-                var townPolitics: String = "POLITICS"){
+                var townName: String = "TOWN_NAME",
+                var townSize: String = "TOWN_SIZE",
+                var townTerrain: String = "TOWN_TERRAIN",
+                var townBuildings: String = "TOWN_BUILDINGS",
+                var townPolitics: String = "TOWN_POLITICS"){
 
     fun getID(): UUID{
         return id;

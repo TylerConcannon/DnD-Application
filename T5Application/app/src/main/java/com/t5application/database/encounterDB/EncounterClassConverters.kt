@@ -1,12 +1,12 @@
-package com.t5application.database
+package com.t5application.database.encounterDB
 
 import androidx.room.TypeConverter
 import java.util.*
 
-class TownClassConverters {
+class EncounterClassConverters {
 
     @TypeConverter
-    fun toUUID(uuid: String?):UUID?{
+    fun toUUID(uuid: String?): UUID?{
         return UUID.fromString(uuid)
     }
 

@@ -1,7 +1,7 @@
 package com.t5application.pages.dm.content.town
 
 import androidx.lifecycle.ViewModel
-import com.t5application.database.TownRepository
+import com.t5application.database.townDB.TownRepository
 import com.t5application.dm_classes.Town
 
 class TownListViewModel : ViewModel() {
