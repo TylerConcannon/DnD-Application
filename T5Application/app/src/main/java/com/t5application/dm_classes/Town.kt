@@ -1,6 +1,20 @@
 package com.t5application.dm_classes
 
-class Town(var townName: String, var townSize: String, var townTerrain: String, var townBuildings: MutableList<String>, var townPolitics: String) {
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity(tableName = "town_database")
+data class Town(@PrimaryKey val id: Int = 0,
+                var townName: String = "",
+                var townSize: String = "",
+                var townTerrain: String = "",
+                var townBuildings: String = "",
+                var townPolitics: String = ""){
+
+    fun getID(): Int{
+        return id;
+    }
 
     fun getName(): String {
         return townName;
@@ -14,7 +28,7 @@ class Town(var townName: String, var townSize: String, var townTerrain: String, 
         return townTerrain;
     }
 
-    fun getBuildings(): MutableList<String> {
+    fun getBuildings(): String {
         return townBuildings;
     }
 
