@@ -9,6 +9,8 @@ import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Spinner
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
 
@@ -27,21 +29,17 @@ class CreateTown : Fragment() {
     private lateinit var terrainSpinner: Spinner
     private lateinit var buildingSpinner: Spinner
     private lateinit var politicsSpinner: Spinner
-    private lateinit var town: Town
+    private var town: Town = Town()
 
-    private val townDetailViewModel: TownDetailViewModel by lazy {
-        ViewModelProviders.of(this).get(TownDetailViewModel::class.java)
-    }
+    private val townDetailViewModel: TownDetailViewModel by activityViewModels()
 
-    private val townListViewModel : TownListViewModel by lazy {
-        ViewModelProviders.of(this).get(TownListViewModel::class.java)
-    }
+    private val townListViewModel: TownListViewModel by activityViewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        town = Town()
-        val townId : Int = (Math.random()*1000000).toInt()
-        townDetailViewModel.loadTown(townId)
+        town = Town(0, "Testing Town")
+        //val townId = arguments?.getSerializable("townId") as Int
+        townDetailViewModel.loadTown(0)
     }
 
     override fun onCreateView(
@@ -80,6 +78,9 @@ class CreateTown : Fragment() {
             town.townBuildings = buildings[buildingSpinner.selectedItemPosition]
             town.townPolitics = politics[politicsSpinner.selectedItemPosition]
             townDetailViewModel.saveTown(town)
+            townListViewModel.towns.add(town)
+            town.printTown()
+            println("Towns in LVM: ${townListViewModel.towns.toString()}")
             view.findNavController().navigate(R.id.CreateTownToTownViewer)
         }
 
@@ -108,6 +109,17 @@ class CreateTown : Fragment() {
         val adapter = ArrayAdapter(requireActivity().applicationContext, android.R.layout.simple_selectable_list_item, politics)
 
         politicsSpinner.adapter = adapter
+    }
+
+    companion object{
+        fun newInstance(townId: Int):TownViewer{
+            val args = Bundle().apply {
+                putSerializable("townId", townId)
+            }
+            return TownViewer().apply {
+                arguments = args
+            }
+        }
     }
 
 }

@@ -1,15 +1,17 @@
 package com.t5application.pages.dm
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.*
 import android.view.ViewGroup
-import android.widget.EditText
 import android.widget.ImageView
-import android.widget.LinearLayout
+import android.widget.TextView
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -21,10 +23,26 @@ import com.t5application.pages.dm.content.town.TownListViewModel
 class DMRecyclerView : Fragment() {
 
     private lateinit var AddContent: ImageView
+
     private lateinit var townRecyclerView: RecyclerView
-    private var adapter: TownAdapter? = TownAdapter(emptyList())
-    private val townListViewModel: TownListViewModel by lazy {
-        ViewModelProviders.of(this).get(TownListViewModel::class.java)
+    private var adapter: TownAdapter? = null
+
+    private val townListViewModel: TownListViewModel by activityViewModels()
+
+    /*interface Callbacks{
+        fun onTownSelected(townId: Int)
+    }
+
+    private var callbacks:Callbacks? = null*/
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        //callbacks = context as Callbacks?
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+        //callbacks = null
     }
 
     override fun onCreateView(
@@ -41,10 +59,24 @@ class DMRecyclerView : Fragment() {
         AddContent.setOnClickListener {
             view.findNavController().navigate(R.id.DMRecyclerViewToCreateContent)
         }
-        townRecyclerView = view.findViewById(R.id.DMRecyclerView)
+
+        townRecyclerView = view.findViewById(R.id.DMRecyclerView) as RecyclerView
         townRecyclerView.layoutManager = LinearLayoutManager(context)
-        townRecyclerView.adapter = adapter
+
+        /*townListViewModel.townListLiveData.observe(
+            viewLifecycleOwner,
+            Observer { towns ->
+                towns?.let{
+                    updateUI(towns)
+                }
+            }
+        )*/
+        updateUI(townListViewModel.towns)
         return view
+    }
+
+    private fun updateUI(towns: List<Town>){
+        townRecyclerView.adapter = TownAdapter(towns)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -55,14 +87,18 @@ class DMRecyclerView : Fragment() {
             Observer { towns ->
                 towns?.let {
                     Log.i("DMRECVIEW", "Got all towns")
-                    townRecyclerView.adapter = TownAdapter(towns)
+                    println("Town at first index: ${townListViewModel.towns.toString()}")
+                    townRecyclerView.adapter = TownAdapter(townListViewModel.towns)
                 }
             }
         )
     }
 
     private inner class TownHolder(view: View):RecyclerView.ViewHolder(view), View.OnClickListener{
-        private val nameEditText: EditText = itemView.findViewById(R.id.nameTextBox)
+        private val nameTextView: TextView = itemView.findViewById(R.id.nameTextView)
+        private val sizeTextView: TextView = itemView.findViewById(R.id.sizeTextView)
+        private val terrainTextView: TextView = itemView.findViewById(R.id.terrainTextView)
+        private val politicsTextView: TextView = itemView.findViewById(R.id.politicsTextView)
         private lateinit var town: Town
 
         init{
@@ -71,17 +107,20 @@ class DMRecyclerView : Fragment() {
 
         fun bind(town: Town){
             this.town = town
-            nameEditText.setText(this.town.townName)
+            nameTextView.text = this.town.townName
+            sizeTextView.text = this.town.townSize
+            terrainTextView.text = this.town.townTerrain
+            politicsTextView.text = this.town.townPolitics
         }
 
         override fun onClick(v: View?) {
-            TODO("Not yet implemented")
+            //callbacks?.onTownSelected(town.id)
         }
     }
 
     private inner class TownAdapter(var towns: List<Town>) : RecyclerView.Adapter<TownHolder>(){
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TownHolder {
-            val view = layoutInflater.inflate(R.id.DMRecyclerView, parent, false)
+            val view = layoutInflater.inflate(R.layout.town_list_view, parent, false)
             return TownHolder(view)
         }
 

@@ -6,11 +6,11 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "town_database")
 data class Town(@PrimaryKey val id: Int = 0,
-                var townName: String = "",
-                var townSize: String = "",
-                var townTerrain: String = "",
-                var townBuildings: String = "",
-                var townPolitics: String = ""){
+                var townName: String = "NAME",
+                var townSize: String = "SIZE",
+                var townTerrain: String = "TERRAIN",
+                var townBuildings: String = "BUILDINGS",
+                var townPolitics: String = "POLITICS"){
 
     fun getID(): Int{
         return id;
@@ -34,5 +34,9 @@ data class Town(@PrimaryKey val id: Int = 0,
 
     fun getPolitics(): String {
         return townPolitics;
+    }
+
+    fun printTown(){
+        println("Name: $townName Size: $townSize Terrain: $townTerrain Buildings: $townBuildings Politics: $townPolitics")
     }
 }
