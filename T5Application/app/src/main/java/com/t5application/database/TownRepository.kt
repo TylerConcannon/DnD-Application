@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.room.Room
 import com.t5application.dm_classes.Town
 import java.lang.IllegalStateException
+import java.util.*
 import java.util.concurrent.Executors
 
 
@@ -23,7 +24,7 @@ class TownRepository private constructor(context: Context) {
 
     fun getTowns():LiveData<List<Town>> = townDao.getAllTowns()
 
-    fun getTown(id: Int):LiveData<Town> = townDao.getTownById(id)
+    fun getTown(id: UUID):LiveData<Town> = townDao.getTownById(id)
 
     fun deleteTown(town: Town){
         executor.execute {

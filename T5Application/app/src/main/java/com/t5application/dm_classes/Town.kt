@@ -3,16 +3,17 @@ package com.t5application.dm_classes
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.util.*
 
 @Entity(tableName = "town_database")
-data class Town(@PrimaryKey val id: Int = 0,
+data class Town(@PrimaryKey val id: UUID = UUID.randomUUID(),
                 var townName: String = "NAME",
                 var townSize: String = "SIZE",
                 var townTerrain: String = "TERRAIN",
                 var townBuildings: String = "BUILDINGS",
                 var townPolitics: String = "POLITICS"){
 
-    fun getID(): Int{
+    fun getID(): UUID{
         return id;
     }
 

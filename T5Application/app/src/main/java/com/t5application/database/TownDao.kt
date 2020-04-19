@@ -3,6 +3,7 @@ package com.t5application.database
 import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.t5application.dm_classes.Town
+import java.util.*
 
 @Dao
 interface TownDao {
@@ -10,12 +11,12 @@ interface TownDao {
     fun getAllTowns(): LiveData<List<Town>>
 
     @Query("SELECT * FROM town_database WHERE id=(:townId)")
-    fun getTownById(townId: Int): LiveData<Town>
+    fun getTownById(townId: UUID): LiveData<Town>
 
     @Update
     fun updateTown(town: Town)
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert
     fun insertTown(town: Town)
 
     @Delete

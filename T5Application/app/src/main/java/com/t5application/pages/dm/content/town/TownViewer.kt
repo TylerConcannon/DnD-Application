@@ -14,6 +14,7 @@ import androidx.navigation.findNavController
 
 import com.t5application.R
 import com.t5application.dm_classes.Town
+import java.util.*
 
 class TownViewer : Fragment() {
 
@@ -33,7 +34,8 @@ class TownViewer : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         town = Town()
-        val townId : Int = (Math.random()*1000000).toInt()
+        val townId = townDetailViewModel.idOfNavigation
+        println("ID of Town Navigated from: ${townDetailViewModel.idOfNavigation}")
         townDetailViewModel.loadTown(townId)
     }
 
@@ -83,14 +85,9 @@ class TownViewer : Fragment() {
         )
     }
 
-    override fun onStop() {
-        super.onStop()
-        townDetailViewModel.saveTown(town)
-    }
-
     companion object{
 
-        fun newInstance(townId: Int):TownViewer{
+        fun newInstance(townId: UUID):TownViewer{
             val args = Bundle().apply {
                 putSerializable("townId", townId)
             }

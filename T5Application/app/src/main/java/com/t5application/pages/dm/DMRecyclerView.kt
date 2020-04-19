@@ -25,7 +25,7 @@ class DMRecyclerView : Fragment() {
     private lateinit var AddContent: ImageView
 
     private lateinit var townRecyclerView: RecyclerView
-    private var adapter: TownAdapter? = null
+    private var adapter: TownAdapter? = TownAdapter(emptyList())
 
     private val townListViewModel: TownListViewModel by activityViewModels()
 
@@ -60,18 +60,21 @@ class DMRecyclerView : Fragment() {
             view.findNavController().navigate(R.id.DMRecyclerViewToCreateContent)
         }
 
+        println("Current town count: ${adapter?.itemCount}")
+
         townRecyclerView = view.findViewById(R.id.DMRecyclerView) as RecyclerView
         townRecyclerView.layoutManager = LinearLayoutManager(context)
+        townRecyclerView.adapter = adapter
 
-        /*townListViewModel.townListLiveData.observe(
+        townListViewModel.townListLiveData.observe(
             viewLifecycleOwner,
             Observer { towns ->
                 towns?.let{
                     updateUI(towns)
                 }
             }
-        )*/
-        updateUI(townListViewModel.towns)
+        )
+        //updateUI(townListViewModel.towns)
         return view
     }
 
@@ -87,8 +90,8 @@ class DMRecyclerView : Fragment() {
             Observer { towns ->
                 towns?.let {
                     Log.i("DMRECVIEW", "Got all towns")
-                    println("Town at first index: ${townListViewModel.towns.toString()}")
-                    townRecyclerView.adapter = TownAdapter(townListViewModel.towns)
+                    println("Town at first index: ${townListViewModel.townListLiveData.value.toString()}")
+                    updateUI(towns)
                 }
             }
         )

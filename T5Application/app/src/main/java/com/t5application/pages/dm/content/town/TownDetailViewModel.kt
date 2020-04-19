@@ -6,23 +6,25 @@ import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 import com.t5application.database.TownRepository
 import com.t5application.dm_classes.Town
+import java.util.*
 
 class TownDetailViewModel() : ViewModel() {
 
     private val townRepository = TownRepository.get()
-    private val townIdLiveData = MutableLiveData<Int>()
+    private val townIdLiveData = MutableLiveData<UUID>()
+    lateinit var idOfNavigation: UUID
 
     var townLiveData: LiveData<Town> =
         Transformations.switchMap(townIdLiveData){
             townId -> townRepository.getTown(townId)
         }
 
-    fun loadTown(townId: Int){
+    fun loadTown(townId: UUID){
         townIdLiveData.value = townId
     }
 
     fun saveTown(town: Town){
-        townRepository.updateTown(town)
+        townRepository.addTown(town)
     }
 
     fun deleteTown(town: Town){

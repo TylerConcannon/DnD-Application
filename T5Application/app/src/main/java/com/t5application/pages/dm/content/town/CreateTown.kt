@@ -16,6 +16,7 @@ import androidx.navigation.findNavController
 
 import com.t5application.R
 import com.t5application.dm_classes.Town
+import java.util.*
 import kotlin.math.floor
 
 class CreateTown : Fragment() {
@@ -37,9 +38,10 @@ class CreateTown : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        town = Town(0, "Testing Town")
-        //val townId = arguments?.getSerializable("townId") as Int
-        townDetailViewModel.loadTown(0)
+        /*town = Town()
+        val townId: UUID = arguments?.getSerializable("townId") as UUID
+
+        townDetailViewModel.loadTown(townId)*/
     }
 
     override fun onCreateView(
@@ -79,8 +81,13 @@ class CreateTown : Fragment() {
             town.townPolitics = politics[politicsSpinner.selectedItemPosition]
             townDetailViewModel.saveTown(town)
             townListViewModel.towns.add(town)
+            townDetailViewModel.idOfNavigation = town.id
+
             town.printTown()
-            println("Towns in LVM: ${townListViewModel.towns.toString()}")
+            println("Towns in Database: ${townListViewModel.townListLiveData.value.toString()}")
+            println("Number of Towns in DB: ${townListViewModel.townListLiveData.value?.size}")
+            println("ID of Town to Navigate to: ${townDetailViewModel.idOfNavigation.toString()}")
+            //val fragment = TownViewer.newInstance(town.id)
             view.findNavController().navigate(R.id.CreateTownToTownViewer)
         }
 
@@ -112,7 +119,7 @@ class CreateTown : Fragment() {
     }
 
     companion object{
-        fun newInstance(townId: Int):TownViewer{
+        fun newInstance(townId: UUID):TownViewer{
             val args = Bundle().apply {
                 putSerializable("townId", townId)
             }
