@@ -33,11 +33,11 @@ class SelectRecyclerView : Fragment() {
         encounterButton = view.findViewById(R.id.randomEncounterA)
 
         npcButton.setOnClickListener {
-            //view.findNavController().navigate(R.id.SelectRecyclerViewToNPCRecyclerView)
+            view.findNavController().navigate(R.id.SelectRecyclerViewToNPCRecyclerView)
         }
 
         townButton.setOnClickListener {
-            //view.findNavController().navigate(R.id.SelectRecyclerViewToTownRecyclerView)
+            view.findNavController().navigate(R.id.SelectRecyclerViewToTownRecyclerView)
         }
 
         adventureButton.setOnClickListener {

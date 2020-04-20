@@ -34,7 +34,7 @@ class TownRecyclerView : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.dm_recycler_view, container, false)
+        val view = inflater.inflate(R.layout.town_recycler_view, container, false)
 
         activity?.title =  "Content List"
 
@@ -46,7 +46,7 @@ class TownRecyclerView : Fragment() {
 
         println("Current town count: ${adapter?.itemCount}")
 
-        townRecyclerView = view.findViewById(R.id.DMRecyclerView) as RecyclerView
+        townRecyclerView = view.findViewById(R.id.TownRecyclerView) as RecyclerView
         townRecyclerView.layoutManager = LinearLayoutManager(context)
         townRecyclerView.adapter = adapter
 
@@ -102,7 +102,7 @@ class TownRecyclerView : Fragment() {
 
         override fun onClick(v: View?) {
             townDetailViewModel.idOfNavigation = town.id
-            v?.findNavController()?.navigate(R.id.DMRecyclerViewToTownView)
+            v?.findNavController()?.navigate(R.id.TownRecyclerViewToTownView)
         }
     }
 

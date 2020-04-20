@@ -9,21 +9,16 @@
         android:id="@+id/adventureViewer"
         android:name="com.t5application.pages.dm.content.adventure.AdventureViewer"
         android:label="adventure_viewer"
-        tools:layout="@layout/adventure_viewer">
-        <action
-            android:id="@+id/TownViewerToDMRecyclerView"
-            app:destination="@id/DMRecyclerView"
-            app:popUpToInclusive="false" />
-    </fragment>
+        tools:layout="@layout/adventure_viewer"/>
     <fragment
         android:id="@+id/townViewer"
         android:name="com.t5application.pages.dm.content.town.TownViewer"
         android:label="town_viewer"
         tools:layout="@layout/town_viewer">
         <action
-            android:id="@+id/TownViewerToDMRecyclerView"
-            app:destination="@id/DMRecyclerView"
-            app:popUpTo="@id/DMRecyclerView"
+            android:id="@+id/TownViewerToTownRecyclerView"
+            app:destination="@id/TownRecyclerView"
+            app:popUpTo="@id/TownRecyclerView"
             app:popUpToInclusive="true" />
     </fragment>
     <fragment
@@ -41,9 +36,8 @@
         android:label="npc_viewer"
         tools:layout="@layout/npc_viewer">
         <action
-            android:id="@+id/NPCViewerToCMRecyclerView"
-            app:destination="@id/DMRecyclerView"
-            app:popUpToInclusive="false" />
+            android:id="@+id/NPCViewerToNPCRecyclerView"
+            app:destination="@id/NPCRecyclerView" />
     </fragment>
     <fragment
         android:id="@+id/createEncounter"
@@ -128,34 +122,14 @@
         android:label="character_sheet"
         tools:layout="@layout/character_sheet" />
     <fragment
-        android:id="@+id/DMRecyclerView"
+        android:id="@+id/TownRecyclerView"
         android:name="com.t5application.pages.dm.recycler_views.TownRecyclerView"
-        android:label="DMRecyclerView" >
+        android:label="TownRecyclerView">
         <action
-            android:id="@+id/DMRecyclerViewToCreateContent"
-            app:destination="@id/createContent" />
-        <action
-            android:id="@+id/DMRecyclerViewToTownView"
+            android:id="@+id/TownRecyclerViewToTownView"
             app:destination="@id/townViewer"
-            app:popUpTo="@id/DMRecyclerView"
+            app:popUpTo="@id/TownRecyclerView"
             app:popUpToInclusive="false" />
-    </fragment>
-    <fragment
-        android:id="@+id/createContent"
-        android:name="com.t5application.pages.dm.CreateContent"
-        android:label="CreateContent" >
-        <action
-            android:id="@+id/CreateContentToCreateTown"
-            app:destination="@id/createTown" />
-        <action
-            android:id="@+id/CreateContentToCreateEncounter"
-            app:destination="@id/createEncounter" />
-        <action
-            android:id="@+id/CreateContentToCreateAdventure"
-            app:destination="@id/createAdventure" />
-        <action
-            android:id="@+id/CreateContentToCreateNPC"
-            app:destination="@id/createNPC" />
     </fragment>
     <fragment
         android:id="@+id/encounterRecyclerView"
@@ -175,5 +149,20 @@
         <action
             android:id="@+id/SelectRecyclerViewToEncounterRecyclerView"
             app:destination="@id/encounterRecyclerView" />
+        <action
+            android:id="@+id/SelectRecyclerViewToTownRecyclerView"
+            app:destination="@id/TownRecyclerView" />
+        <action
+            android:id="@+id/SelectRecyclerViewToNPCRecyclerView"
+            app:destination="@id/NPCRecyclerView" />
+    </fragment>
+    <fragment
+        android:id="@+id/NPCRecyclerView"
+        android:name="com.t5application.pages.dm.recycler_views.NPCRecyclerView"
+        android:label="npc_recycler_view"
+        tools:layout="@layout/npc_recycler_view" >
+        <action
+            android:id="@+id/NPCRecyclerViewToNPCViewer"
+            app:destination="@id/NPCViewer" />
     </fragment>
 </navigation>

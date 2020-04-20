@@ -8,12 +8,10 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 
 import com.t5application.R
 import com.t5application.dm_classes.Town
-import java.util.*
 
 class TownViewer : Fragment() {
 
@@ -59,12 +57,12 @@ class TownViewer : Fragment() {
         activity?.title = "Town Viewer"
 
         doneViewingTown.setOnClickListener {
-            view.findNavController().navigate(R.id.TownViewerToDMRecyclerView)
+            view.findNavController().navigate(R.id.TownViewerToTownRecyclerView)
         }
 
         deleteButton.setOnClickListener{
             townDetailViewModel.deleteTown(town)
-            view.findNavController().navigate(R.id.TownViewerToDMRecyclerView)
+            view.findNavController().navigate(R.id.TownViewerToTownRecyclerView)
         }
 
         return view;
