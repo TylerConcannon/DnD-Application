@@ -7,10 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Button
+import android.widget.EditText
 import android.widget.Spinner
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
 
 import com.t5application.R
+import com.t5application.dm_classes.NPC
 
 class CreateNPC : Fragment() {
 
@@ -20,6 +23,13 @@ class CreateNPC : Fragment() {
     //Spinners
     private lateinit var raceSpinner: Spinner
     private lateinit var occupationSpinner: Spinner
+
+    private lateinit var nameEditText: EditText
+
+    private var npc: NPC = NPC()
+
+    private val npcDetailViewModel: NPCDetailViewModel by activityViewModels()
+    private val npcListViewModel: NPCListViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,6 +42,7 @@ class CreateNPC : Fragment() {
 
         raceSpinner = view.findViewById(R.id.raceSpinner)
         occupationSpinner = view.findViewById(R.id.occupationSpinner)
+        nameEditText = view.findViewById(R.id.nameTextBoxNPC)
 
         val races = resources.getStringArray(R.array.races)
         raceSpinner(races)
@@ -42,6 +53,16 @@ class CreateNPC : Fragment() {
         generate = view.findViewById(R.id.confirmNPCButton)
 
         generate.setOnClickListener {
+            npc.npcOccupation = occupations[occupationSpinner.selectedItemPosition]
+            npc.npcRace = races[raceSpinner.selectedItemPosition]
+            npc.npcName = nameEditText.text.toString()
+            npcDetailViewModel.saveNPC(npc)
+            npcListViewModel.npcs.add(npc)
+            npcDetailViewModel.idOfNavigation = npc.id
+
+            npc.printNPC()
+
+
             view.findNavController().navigate(R.id.CreateNPCToNPCViewer)
         }
 

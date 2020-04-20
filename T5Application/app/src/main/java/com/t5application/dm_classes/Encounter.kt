@@ -6,10 +6,11 @@ import java.util.*
 
 @Entity(tableName = "encounter_database")
 class Encounter(@PrimaryKey val id: UUID = UUID.randomUUID(),
-                var encName: String,
-                var encCR: Int,
-                var encMonsterNumber: Int,
-                var encMonsters: String) {
+                var encName: String = "DEFAULT_NAME",
+                var encCR: Int = -1,
+                var encMonsterNumber: Int = -1,
+                var encMonsters: String = "DEFAULT_MONSTERS",
+                var encTerrain: String = "DEFAULT_TERRAIN") {
 
     fun getID(): UUID{
         return id;

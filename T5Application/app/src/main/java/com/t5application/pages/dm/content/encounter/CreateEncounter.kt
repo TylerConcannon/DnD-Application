@@ -7,10 +7,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Button
+import android.widget.EditText
 import android.widget.Spinner
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
 
 import com.t5application.R
+import com.t5application.dm_classes.Encounter
+import kotlinx.android.synthetic.main.create_encounter.*
 
 class CreateEncounter : Fragment() {
 
@@ -20,6 +24,12 @@ class CreateEncounter : Fragment() {
     //Spinners
     private lateinit var terrainSpinner: Spinner
     private lateinit var enemyNumberSpinner: Spinner
+
+    private lateinit var combatRatingEditText: EditText
+    private var encounter: Encounter = Encounter()
+
+    private val encounterDetailViewModel: EncounterDetailViewModel by activityViewModels()
+    private val encounterListViewModel: EncounterListViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,6 +42,7 @@ class CreateEncounter : Fragment() {
 
         terrainSpinner = view.findViewById(R.id.terrainSpinner)
         enemyNumberSpinner = view.findViewById(R.id.enemyNumberSpinner)
+        combatRatingEditText = view.findViewById(R.id.crEditText)
 
         val terrains = resources.getStringArray(R.array.terrains)
         terrainSpinner(terrains)
@@ -42,6 +53,17 @@ class CreateEncounter : Fragment() {
         generate = view.findViewById(R.id.confirmEncounterButton)
 
         generate.setOnClickListener {
+            encounter.encMonsterNumber = enemyNumbers[enemyNumberSpinner.selectedItemPosition].toInt()
+            encounter.encCR = crEditText.text.toString().toInt()
+            encounter.encTerrain = terrains[terrainSpinner.selectedItemPosition]
+
+            encounterDetailViewModel.saveEncounter(encounter)
+            encounterListViewModel.encounters.add(encounter)
+            encounterDetailViewModel.idOfNavigation = encounter.id
+
+            encounter.printEncounter()
+
+
             view.findNavController().navigate(R.id.CreateEncounterToEncounterViewer)
         }
 

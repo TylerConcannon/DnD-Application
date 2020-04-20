@@ -10,13 +10,10 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Spinner
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 
 import com.t5application.R
 import com.t5application.dm_classes.Town
-import java.util.*
-import kotlin.math.floor
 
 class CreateTown : Fragment() {
 
@@ -52,7 +49,7 @@ class CreateTown : Fragment() {
 
         activity?.title =  "Create Town"
 
-        nameEditText = view.findViewById(R.id.nameTextBox)
+        nameEditText = view.findViewById(R.id.nameTextBoxNPC)
         sizeSpinner = view.findViewById(R.id.sizeSpinner)
         terrainSpinner = view.findViewById(R.id.terrainSpinner)
         buildingSpinner = view.findViewById(R.id.buildingSpinner)
