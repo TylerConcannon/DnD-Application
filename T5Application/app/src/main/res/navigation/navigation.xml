@@ -28,7 +28,9 @@
         tools:layout="@layout/encounter_viewer">
         <action
             android:id="@+id/encounterViewToEncounterRecyclerView"
-            app:destination="@id/encounterRecyclerView" />
+            app:destination="@id/encounterRecyclerView"
+            app:popUpTo="@id/encounterRecyclerView"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/NPCViewer"
@@ -37,7 +39,9 @@
         tools:layout="@layout/npc_viewer">
         <action
             android:id="@+id/NPCViewerToNPCRecyclerView"
-            app:destination="@id/NPCRecyclerView" />
+            app:destination="@id/NPCRecyclerView"
+            app:popUpTo="@id/NPCRecyclerView"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/createEncounter"
@@ -48,7 +52,7 @@
             android:id="@+id/CreateEncounterToEncounterViewer"
             app:destination="@id/encounterViewer"
             app:popUpTo="@id/encounterRecyclerView"
-            app:popUpToInclusive="false" />
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/createTown"
@@ -140,10 +144,14 @@
         android:label="EncounterRecyclerView" >
         <action
             android:id="@+id/EncounterRecyclerViewToCreateEncounter"
-            app:destination="@id/createEncounter" />
+            app:destination="@id/createEncounter"
+            app:popUpTo="@id/encounterRecyclerView"
+            app:popUpToInclusive="true" />
         <action
             android:id="@+id/EncounterRecyclerViewToEncounterView"
-            app:destination="@id/encounterViewer" />
+            app:destination="@id/encounterViewer"
+            app:popUpTo="@id/encounterRecyclerView"
+            app:popUpToInclusive="false" />
     </fragment>
     <fragment
         android:id="@+id/selectRecyclerView"
@@ -166,7 +174,9 @@
         tools:layout="@layout/npc_recycler_view" >
         <action
             android:id="@+id/NPCRecyclerViewToNPCViewer"
-            app:destination="@id/NPCViewer" />
+            app:destination="@id/NPCViewer"
+            app:popUpTo="@id/NPCRecyclerView"
+            app:popUpToInclusive="false" />
         <action
             android:id="@+id/NPCRecyclerViewToCreateNPC"
             app:destination="@id/createNPC" />

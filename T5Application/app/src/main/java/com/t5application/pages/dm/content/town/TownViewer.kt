@@ -45,7 +45,7 @@ class TownViewer : Fragment() {
         val view =  inflater.inflate(R.layout.town_viewer, container, false)
 
         activity?.title = "Town"
-        nameTextView = view.findViewById(R.id.nameTextView) as TextView
+        nameTextView = view.findViewById(R.id.nameTextViewNPC) as TextView
         sizeTextView = view.findViewById(R.id.sizeTextView) as TextView
         terrainTextView = view.findViewById(R.id.terrainTextView) as TextView
         buildingsTextView = view.findViewById(R.id.buildingTextView) as TextView
