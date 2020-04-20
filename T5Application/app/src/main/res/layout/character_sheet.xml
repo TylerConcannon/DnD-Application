@@ -6,26 +6,337 @@
     android:layout_height="match_parent"
     tools:context=".pages.player.CharacterSheet">
 
-    <com.google.android.material.tabs.TabLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/nameTextView"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Name"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/levelTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="Level"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/nameTextView"
+        app:layout_constraintEnd_toStartOf="@+id/classTextView"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/nameTextView" />
+
+    <TextView
+        android:id="@+id/raceTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="Race"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/levelTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/levelTextView" />
+
+    <TextView
+        android:id="@+id/classTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="Class"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/levelTextView"
+        app:layout_constraintEnd_toStartOf="@+id/raceTextView"
+        app:layout_constraintTop_toTopOf="@+id/levelTextView"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/strTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Strength"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/dexTextView"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/dexTextView"
+        app:layout_constraintTop_toBottomOf="@+id/nameTextView" />
+
+    <TextView
+        android:id="@+id/strNum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="16"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/strTextView"
+        app:layout_constraintStart_toStartOf="@+id/strTextView"
+        app:layout_constraintTop_toBottomOf="@+id/strTextView" />
+
+    <TextView
+        android:id="@+id/strMod"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="+3"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/strTextView"
+        app:layout_constraintStart_toStartOf="@+id/strTextView"
+        app:layout_constraintTop_toBottomOf="@+id/strNum" />
+
+    <TextView
+        android:id="@+id/dexTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Dexterity"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/conTextView"
+        app:layout_constraintStart_toStartOf="@+id/conTextView"
+        app:layout_constraintTop_toBottomOf="@+id/strMod" />
+
+    <TextView
+        android:id="@+id/dexNum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="16"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/dexTextView"
+        app:layout_constraintStart_toStartOf="@+id/dexTextView"
+        app:layout_constraintTop_toBottomOf="@+id/dexTextView" />
+
+    <TextView
+        android:id="@+id/dexMod"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="+3"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/dexNum"
+        app:layout_constraintStart_toStartOf="@+id/dexNum"
+        app:layout_constraintTop_toBottomOf="@+id/dexNum" />
+
+    <TextView
+        android:id="@+id/conTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Constitution"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dexMod" />
+
+    <TextView
+        android:id="@+id/conNum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="16"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/conTextView"
+        app:layout_constraintStart_toStartOf="@+id/conTextView"
+        app:layout_constraintTop_toBottomOf="@+id/conTextView" />
+
+    <TextView
+        android:id="@+id/conMod"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="+3"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/conNum"
+        app:layout_constraintStart_toStartOf="@+id/conNum"
+        app:layout_constraintTop_toBottomOf="@+id/conNum" />
+
+    <TextView
+        android:id="@+id/intTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Intelligence"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/conTextView"
+        app:layout_constraintStart_toStartOf="@+id/conTextView"
+        app:layout_constraintTop_toBottomOf="@+id/conMod" />
+
+    <TextView
+        android:id="@+id/intNum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="16"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/intTextView"
+        app:layout_constraintStart_toStartOf="@+id/intTextView"
+        app:layout_constraintTop_toBottomOf="@+id/intTextView" />
+
+    <TextView
+        android:id="@+id/intMod"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="+3"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/intNum"
+        app:layout_constraintStart_toStartOf="@+id/intNum"
+        app:layout_constraintTop_toBottomOf="@+id/intNum" />
+
+    <TextView
+        android:id="@+id/wisTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Wisdom"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/conTextView"
+        app:layout_constraintStart_toStartOf="@+id/conTextView"
+        app:layout_constraintTop_toBottomOf="@+id/intMod" />
+
+    <TextView
+        android:id="@+id/wisNum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="16"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/wisTextView"
+        app:layout_constraintStart_toStartOf="@+id/wisTextView"
+        app:layout_constraintTop_toBottomOf="@+id/wisTextView" />
+
+    <TextView
+        android:id="@+id/wisMod"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="+3"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/wisNum"
+        app:layout_constraintStart_toStartOf="@+id/wisNum"
+        app:layout_constraintTop_toBottomOf="@+id/wisNum" />
+
+    <TextView
+        android:id="@+id/chaTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Charisma"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/conTextView"
+        app:layout_constraintStart_toStartOf="@+id/conTextView"
+        app:layout_constraintTop_toBottomOf="@+id/wisMod" />
+
+    <TextView
+        android:id="@+id/chaNum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="16"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/chaTextView"
+        app:layout_constraintStart_toStartOf="@+id/chaTextView"
+        app:layout_constraintTop_toBottomOf="@+id/chaTextView" />
+
+    <TextView
+        android:id="@+id/chaMod"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="+3"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/chaNum"
+        app:layout_constraintStart_toStartOf="@+id/chaNum"
+        app:layout_constraintTop_toBottomOf="@+id/chaNum" />
+
+    <TextView
+        android:id="@+id/profTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:text="Proficiencies"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/strTextView"
+        app:layout_constraintTop_toTopOf="@+id/strTextView" />
+
+    <TextView
+        android:id="@+id/weaTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Weapons"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/profList"
+        app:layout_constraintTop_toBottomOf="@+id/profList" />
+
+    <TextView
+        android:id="@+id/profList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="blah\n\nblah\n\nblah"
+        app:layout_constraintStart_toStartOf="@+id/profTextView"
+        app:layout_constraintTop_toBottomOf="@+id/profTextView" />
+
+    <TextView
+        android:id="@+id/weaList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="blah\n\nblah\n\nblah"
+        app:layout_constraintStart_toStartOf="@+id/weaTextView"
+        app:layout_constraintTop_toBottomOf="@+id/weaTextView" />
+
+    <TextView
+        android:id="@+id/featTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Feats/Abilties"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/weaList"
+        app:layout_constraintTop_toBottomOf="@+id/weaList" />
+
+    <View
+        android:id="@+id/divider2"
+        android:layout_width="409dp"
+        android:layout_height="1dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp"
+        android:background="#000000"
+        app:layout_constraintBottom_toTopOf="@+id/profTextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.79" />
 
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="General" />
+    <View
+        android:id="@+id/divider3"
+        android:layout_width="1dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:background="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/featTextView"
+        app:layout_constraintHorizontal_bias="0.91"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nameTextView"
+        app:layout_constraintVertical_bias="0.26999998" />
 
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Tuesday" />
+    <TextView
+        android:id="@+id/featList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="blah\n\nblah\n\nblah"
+        app:layout_constraintStart_toStartOf="@+id/featTextView"
+        app:layout_constraintTop_toBottomOf="@+id/featTextView" />
 
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Wednesday" />
-    </com.google.android.material.tabs.TabLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -87,10 +87,7 @@
     <string-array name="terrains">
         <item>Forest</item>
         <item>Hills</item>
-        <item>Jungle</item>
         <item>Mountains</item>
-        <item>Plains</item>
-        <item>Snowy</item>
         <item>Swamp</item>
     </string-array>
 
@@ -159,10 +156,67 @@
         <item>10</item>
     </string-array>
 
-    <string-array name="enemyTypes">
-        <item>Short</item>
-        <item>Medium</item>
-        <item>Long</item>
+    <string-array name="forestEnemy">
+        <item>Goblin</item>
+        <item>Bandit Captain</item>
+        <item>OwlBear</item>
+        <item>Unicorn</item>
+    </string-array>
+
+    <string-array name="forestWeapons">
+        <item>ShortSword 1d6+4</item>
+        <item>Scimitar 1d8+5</item>
+        <item>Beak 1d10+5</item>
+        <item>Horn 2d10+7</item>
+    </string-array>
+
+    <string-array name="hillEnemy">
+        <item>Giant Badger</item>
+        <item>Ogre</item>
+        <item>Knight</item>
+        <item>Hill Giant</item>
+    </string-array>
+
+    <string-array name="hillWeapons">
+        <item>Bite 1d6+1</item>
+        <item>GreatClub 2d8+4</item>
+        <item>GreatSword 2d6+3</item>
+        <item>Rock 3d10+5</item>
+    </string-array>
+
+    <string-array name="mountainEnemy">
+        <item>Giant Wolf Spider</item>
+        <item>Centaur</item>
+        <item>Giant Scorpion</item>
+        <item>Troll</item>
+    </string-array>
+
+    <string-array name="mountainWeapons">
+        <item>Bite 1d6+1</item>
+        <item>Hooves 2d6+4</item>
+        <item>Sting 1d10+2</item>
+        <item>Claw 2d6+4</item>
+    </string-array>
+
+    <string-array name="swampEnemy">
+        <item>Zombie</item>
+        <item>Ghast</item>
+        <item>Green Hag</item>
+        <item>Night Hag</item>
+    </string-array>
+
+    <string-array name="swampWeapons">
+        <item>Slam 1d6+1</item>
+        <item>Bite 2d8+3</item>
+        <item>Claws 2d8+4</item>
+        <item>Claws 2d8+4</item>
+    </string-array>
+
+    <string-array name="cr">
+        <item>50</item>
+        <item>100</item>
+        <item>700</item>
+        <item>1800</item>
     </string-array>
 
     <!-- TODO: Remove or change this placeholder text -->

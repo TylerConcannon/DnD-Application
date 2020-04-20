@@ -53,6 +53,50 @@ class CreateEncounter : Fragment() {
         generate = view.findViewById(R.id.confirmEncounterButton)
 
         generate.setOnClickListener {
+
+
+            // Concannon's Code Start ------------------------------------------------------------------------------------------
+            var monsterNames= mutableSetOf<String>()
+            var monsterWeapons= mutableSetOf<String>()
+
+            for(i in 3 downTo 0){
+                if(resources.getStringArray(R.array.cr)[i].toInt() > (crEditText.text.toString().toInt() / enemyNumbers[enemyNumberSpinner.selectedItemPosition].toInt())) {     //If(CR from string list > userCR/user#) continue; else (add same monster * user#)
+                    continue
+                }
+                else{
+                    if(terrains[terrainSpinner.selectedItemPosition] == "Forest"){
+                        for(o in 0..enemyNumbers[enemyNumberSpinner.selectedItemPosition].toInt()) {
+                            monsterNames.add(resources.getStringArray(R.array.forestEnemy)[o])
+                            monsterWeapons.add(resources.getStringArray(R.array.forestWeapons)[o])
+                        }
+                        break
+                    }
+                    else if(terrains[terrainSpinner.selectedItemPosition] == "Hills"){
+                        for(o in 0..enemyNumbers[enemyNumberSpinner.selectedItemPosition].toInt()) {
+                            monsterNames.add(resources.getStringArray(R.array.hillEnemy)[o])
+                            monsterWeapons.add(resources.getStringArray(R.array.hillWeapons)[o])
+                        }
+                        break
+                    }
+                    else if(terrains[terrainSpinner.selectedItemPosition] == "Mountains"){
+                        for(o in 0..enemyNumbers[enemyNumberSpinner.selectedItemPosition].toInt()) {
+                            monsterNames.add(resources.getStringArray(R.array.mountainEnemy)[o])
+                            monsterWeapons.add(resources.getStringArray(R.array.mountainWeapons)[o])
+                        }
+                        break
+                    }
+                    else{
+                        for(o in 0..enemyNumbers[enemyNumberSpinner.selectedItemPosition].toInt()) {
+                            monsterNames.add(resources.getStringArray(R.array.swampEnemy)[o])
+                            monsterWeapons.add(resources.getStringArray(R.array.swampWeapons)[o])
+                        }
+                        break
+                    }
+                }
+            }
+            // Concannon's Code End ------------------------------------------------------------------------------------------
+
+
             encounter.encMonsterNumber = enemyNumbers[enemyNumberSpinner.selectedItemPosition].toInt()
             encounter.encCR = crEditText.text.toString().toInt()
             encounter.encTerrain = terrains[terrainSpinner.selectedItemPosition]
