@@ -82,7 +82,7 @@ class TownRecyclerView : Fragment() {
     }
 
     private inner class TownHolder(view: View):RecyclerView.ViewHolder(view), View.OnClickListener{
-        private val nameTextView: TextView = itemView.findViewById(R.id.nameTextView)
+        private val nameTextView: TextView = itemView.findViewById(R.id.nameTextViewNPC)
         private val sizeTextView: TextView = itemView.findViewById(R.id.sizeTextView)
         private val terrainTextView: TextView = itemView.findViewById(R.id.terrainTextView)
         private val politicsTextView: TextView = itemView.findViewById(R.id.politicsTextView)

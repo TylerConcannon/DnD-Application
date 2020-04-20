@@ -99,7 +99,7 @@ class EncounterRecyclerView : Fragment() {
             this.encounter = encounter
             nameTextView.text = this.encounter.encName
             combatRatingTextView.text = this.encounter.encCR.toString()
-            monsterNumberTextView.text = this.encounter.toString()
+            monsterNumberTextView.text = this.encounter.encMonsterNumber.toString()
             monstersTextView.text = this.encounter.encMonsters
         }
 
