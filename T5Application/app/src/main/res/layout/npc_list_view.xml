@@ -21,11 +21,12 @@
         android:id="@+id/raceTextViewNPC"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         android:text="Race"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/occupationTextViewNPC"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nameTextViewNPC" />
 
@@ -33,10 +34,11 @@
         android:id="@+id/occupationTextViewNPC"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="69dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="32dp"
         android:text="Occupation"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/raceTextViewNPC"
+        app:layout_constraintTop_toTopOf="@+id/raceTextViewNPC" />
 </androidx.constraintlayout.widget.ConstraintLayout>
