@@ -41,7 +41,7 @@ class TownRecyclerView : Fragment() {
         AddContent = view.findViewById(R.id.AddContentButton)
 
         AddContent.setOnClickListener {
-            view.findNavController().navigate(R.id.DMRecyclerViewToCreateContent)
+            view.findNavController().navigate(R.id.TownRecyclerViewToCreateTown)
         }
 
         println("Current town count: ${adapter?.itemCount}")

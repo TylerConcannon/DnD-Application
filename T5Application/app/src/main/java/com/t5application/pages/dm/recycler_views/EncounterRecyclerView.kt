@@ -41,10 +41,10 @@ class EncounterRecyclerView : Fragment() {
 
         activity?.title =  "Content List"
 
-        AddContent = view.findViewById(R.id.AddContentButton)
+        AddContent = view.findViewById(R.id.AddContentButtonENC)
 
         AddContent.setOnClickListener {
-            view.findNavController().navigate(R.id.DMRecyclerViewToCreateContent)
+            view.findNavController().navigate(R.id.EncounterRecyclerViewToCreateEncounter)
         }
 
         println("Current town count: ${adapter?.itemCount}")

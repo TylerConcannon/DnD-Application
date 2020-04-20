@@ -47,7 +47,7 @@
         <action
             android:id="@+id/CreateEncounterToEncounterViewer"
             app:destination="@id/encounterViewer"
-            app:popUpTo="@id/createContent"
+            app:popUpTo="@id/encounterRecyclerView"
             app:popUpToInclusive="false" />
     </fragment>
     <fragment
@@ -58,7 +58,7 @@
         <action
             android:id="@+id/CreateTownToTownViewer"
             app:destination="@id/townViewer"
-            app:popUpTo="@id/createContent"
+            app:popUpTo="@id/TownRecyclerView"
             app:popUpToInclusive="false" />
     </fragment>
     <fragment
@@ -69,7 +69,7 @@
         <action
             android:id="@+id/CreateAdventureToAdventureViewer"
             app:destination="@id/adventureViewer"
-            app:popUpTo="@id/createContent"
+            app:popUpTo="@id/selectRecyclerView"
             app:popUpToInclusive="false" />
     </fragment>
     <fragment
@@ -80,7 +80,7 @@
         <action
             android:id="@+id/CreateNPCToNPCViewer"
             app:destination="@id/NPCViewer"
-            app:popUpTo="@id/createContent"
+            app:popUpTo="@id/NPCRecyclerView"
             app:popUpToInclusive="false" />
     </fragment>
     <fragment
@@ -130,13 +130,16 @@
             app:destination="@id/townViewer"
             app:popUpTo="@id/TownRecyclerView"
             app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/TownRecyclerViewToCreateTown"
+            app:destination="@id/createTown" />
     </fragment>
     <fragment
         android:id="@+id/encounterRecyclerView"
         android:name="com.t5application.pages.dm.recycler_views.EncounterRecyclerView"
         android:label="EncounterRecyclerView" >
         <action
-            android:id="@+id/action_encounterRecyclerView_to_createEncounter"
+            android:id="@+id/EncounterRecyclerViewToCreateEncounter"
             app:destination="@id/createEncounter" />
         <action
             android:id="@+id/EncounterRecyclerViewToEncounterView"
@@ -164,5 +167,8 @@
         <action
             android:id="@+id/NPCRecyclerViewToNPCViewer"
             app:destination="@id/NPCViewer" />
+        <action
+            android:id="@+id/NPCRecyclerViewToCreateNPC"
+            app:destination="@id/createNPC" />
     </fragment>
 </navigation>

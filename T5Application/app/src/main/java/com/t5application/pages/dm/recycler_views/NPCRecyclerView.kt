@@ -44,10 +44,10 @@ class NPCRecyclerView : Fragment() {
 
         activity?.title =  "Content List"
 
-        AddContent = view.findViewById(R.id.AddContentButton)
+        AddContent = view.findViewById(R.id.AddContentButtonNPC)
 
         AddContent.setOnClickListener {
-            view.findNavController().navigate(R.id.DMRecyclerViewToCreateContent)
+            view.findNavController().navigate(R.id.NPCRecyclerViewToCreateNPC)
         }
 
         println("Current town count: ${adapter?.itemCount}")
@@ -107,7 +107,7 @@ class NPCRecyclerView : Fragment() {
         override fun onClick(v: View?) {
             npcDetailViewModel.idOfNavigation = npc.id
                                                 // ADD NPC RECYCLER VIEW -> NPC VIEW ////////////////
-            //v?.findNavController()?.navigate(R.id.NPCRecyclerViewToNPCView)
+            v?.findNavController()?.navigate(R.id.NPCRecyclerViewToNPCViewer)
         }
     }
 
