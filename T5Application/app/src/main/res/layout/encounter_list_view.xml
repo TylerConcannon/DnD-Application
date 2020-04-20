@@ -21,33 +21,35 @@
         android:id="@+id/combatRatingTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
         android:layout_marginBottom="8dp"
         android:text="CR"
+        android:textAlignment="center"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/monsterNumberTextView"
-        app:layout_constraintStart_toEndOf="@+id/monstersTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/monstersTextView" />
 
     <TextView
         android:id="@+id/monsterNumberTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
         android:text="Monster #"
+        android:textAlignment="viewStart"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/combatRatingTextView"
         app:layout_constraintTop_toTopOf="@+id/monstersTextView" />
 
     <TextView
         android:id="@+id/monstersTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:text="Monsters"
+        android:textAlignment="viewStart"
         android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/combatRatingTextView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nameTextViewENC" />
 </androidx.constraintlayout.widget.ConstraintLayout>
