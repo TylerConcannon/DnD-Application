@@ -32,7 +32,7 @@ class PlayerDMChoice : Fragment() {
         }
 
         DMButton.setOnClickListener {
-            view.findNavController().navigate(R.id.PlayerDMChoiceToDMRecyclerView)
+            view.findNavController().navigate(R.id.playerDMChoiceToSelectRecyclerView)
         }
 
         return view

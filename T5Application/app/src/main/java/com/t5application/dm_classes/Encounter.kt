@@ -9,7 +9,7 @@ class Encounter(@PrimaryKey val id: UUID = UUID.randomUUID(),
                 var encName: String,
                 var encCR: Int,
                 var encMonsterNumber: Int,
-                var encMonsters: MutableList<String>) {
+                var encMonsters: String) {
 
     fun getID(): UUID{
         return id;
@@ -27,7 +27,7 @@ class Encounter(@PrimaryKey val id: UUID = UUID.randomUUID(),
         return encMonsterNumber;
     }
 
-    fun getMonsters(): MutableList<String> {
+    fun getMonsters(): String {
         return encMonsters;
     }
 

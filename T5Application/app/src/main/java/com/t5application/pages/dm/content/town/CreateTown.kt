@@ -11,7 +11,6 @@ import android.widget.EditText
 import android.widget.Spinner
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
 
 import com.t5application.R

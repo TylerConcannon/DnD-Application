@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".pages.dm.recycler_views.TownRecyclerView" >
+    tools:context=".pages.dm.recycler_views.EncounterRecyclerView" >
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -17,14 +17,14 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/AddContentButton"
+            android:id="@+id/AddContentButtonENC"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:layout_weight="1"
             android:src="@android:drawable/ic_input_add" />
 
         <ImageView
-            android:id="@+id/DeleteContentButton"
+            android:id="@+id/DeleteContentButtonENC"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:layout_weight="1"
@@ -33,7 +33,7 @@
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/DMRecyclerView"
+        android:id="@+id/EncounterRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
 import com.t5application.R
 import com.t5application.character_classes.Character

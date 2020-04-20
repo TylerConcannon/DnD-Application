@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.Spinner
-import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
 
 import com.t5application.R

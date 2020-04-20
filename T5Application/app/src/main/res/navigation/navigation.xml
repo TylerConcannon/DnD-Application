@@ -32,9 +32,8 @@
         android:label="encounter_viewer"
         tools:layout="@layout/encounter_viewer">
         <action
-            android:id="@+id/EncounterViewerToDMRecyclerView"
-            app:destination="@id/DMRecyclerView"
-            app:popUpToInclusive="false" />
+            android:id="@+id/encounterViewToEncounterRecyclerView"
+            app:destination="@id/encounterRecyclerView" />
     </fragment>
     <fragment
         android:id="@+id/NPCViewer"
@@ -99,8 +98,8 @@
             android:id="@+id/PlayerDMChoiceToPlayerRecyclerView"
             app:destination="@id/playerCharacterRecyclerView" />
         <action
-            android:id="@+id/PlayerDMChoiceToDMRecyclerView"
-            app:destination="@id/DMRecyclerView" />
+            android:id="@+id/playerDMChoiceToSelectRecyclerView"
+            app:destination="@id/selectRecyclerView" />
     </fragment>
     <fragment
         android:id="@+id/playerCharacterRecyclerView"
@@ -130,7 +129,7 @@
         tools:layout="@layout/character_sheet" />
     <fragment
         android:id="@+id/DMRecyclerView"
-        android:name="com.t5application.pages.dm.DMRecyclerView"
+        android:name="com.t5application.pages.dm.recycler_views.TownRecyclerView"
         android:label="DMRecyclerView" >
         <action
             android:id="@+id/DMRecyclerViewToCreateContent"
@@ -157,5 +156,24 @@
         <action
             android:id="@+id/CreateContentToCreateNPC"
             app:destination="@id/createNPC" />
+    </fragment>
+    <fragment
+        android:id="@+id/encounterRecyclerView"
+        android:name="com.t5application.pages.dm.recycler_views.EncounterRecyclerView"
+        android:label="EncounterRecyclerView" >
+        <action
+            android:id="@+id/action_encounterRecyclerView_to_createEncounter"
+            app:destination="@id/createEncounter" />
+        <action
+            android:id="@+id/EncounterRecyclerViewToEncounterView"
+            app:destination="@id/encounterViewer" />
+    </fragment>
+    <fragment
+        android:id="@+id/selectRecyclerView"
+        android:name="com.t5application.pages.dm.SelectRecyclerView"
+        android:label="SelectRecyclerView" >
+        <action
+            android:id="@+id/SelectRecyclerViewToEncounterRecyclerView"
+            app:destination="@id/encounterRecyclerView" />
     </fragment>
 </navigation>

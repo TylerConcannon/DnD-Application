@@ -9,7 +9,6 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
 
 import com.t5application.R
@@ -19,6 +18,7 @@ import java.util.*
 class TownViewer : Fragment() {
 
     private lateinit var doneViewingTown: Button
+    private lateinit var deleteButton: Button
 
     private lateinit var nameTextView: TextView
     private lateinit var sizeTextView: TextView
@@ -54,10 +54,16 @@ class TownViewer : Fragment() {
         politicsTextView = view.findViewById(R.id.politicsTextView) as TextView
 
         doneViewingTown = view.findViewById(R.id.doneTownButton) as Button
+        deleteButton = view.findViewById(R.id.townViewDeleteButton) as Button
 
         activity?.title = "Town Viewer"
 
         doneViewingTown.setOnClickListener {
+            view.findNavController().navigate(R.id.TownViewerToDMRecyclerView)
+        }
+
+        deleteButton.setOnClickListener{
+            townDetailViewModel.deleteTown(town)
             view.findNavController().navigate(R.id.TownViewerToDMRecyclerView)
         }
 
