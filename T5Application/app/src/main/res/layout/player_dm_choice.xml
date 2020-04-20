@@ -28,8 +28,18 @@
         android:layout_height="200dp"
         android:text="Dungeon Master"
         android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/playMusicButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/PlayerButton" />
+
+    <Button
+        android:id="@+id/playMusicButton"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:text="play music"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/DMButton"
+        tools:layout_editor_absoluteX="152dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
