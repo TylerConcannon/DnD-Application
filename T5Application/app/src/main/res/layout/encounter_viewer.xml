@@ -54,7 +54,7 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="16dp"
         android:text="CR:"
         android:textSize="30sp"
         android:textStyle="bold"
@@ -109,7 +109,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/townViewDeleteButton"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/enemyNameList" />
+        app:layout_constraintTop_toBottomOf="@+id/enemyNameList"
+        app:layout_constraintVertical_bias="0.19999999" />
 
     <Button
         android:id="@+id/townViewDeleteButton"
