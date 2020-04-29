@@ -1,6 +1,7 @@
 package com.t5application.pages.dm.content.encounter
 
 import android.os.Bundle
+import android.text.method.ScrollingMovementMethod
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -14,11 +15,15 @@ import androidx.navigation.findNavController
 
 import com.t5application.R
 import com.t5application.dm_classes.Encounter
+import kotlinx.android.synthetic.main.encounter_list_view.*
 
 class EncounterViewer : Fragment() {
 
     private lateinit var crTextView: TextView
     private lateinit var terrainTextView: TextView
+
+    private lateinit var enemyList: TextView
+    private lateinit var enemyWeapons: TextView
 
     private lateinit var doneButton: Button
     private lateinit var deleteButton: Button
@@ -43,9 +48,25 @@ class EncounterViewer : Fragment() {
 
         crTextView = view.findViewById(R.id.crTextView)
         terrainTextView = view.findViewById(R.id.encTerrainTextView)
-        //doneButton = view.findViewById(R.id.doneEncounterButton)
-        //deleteButton = view.findViewById(R.id.deleteEncounterButton)
+
+        enemyList = view.findViewById(R.id.enemyNameList)
+        enemyList.movementMethod = ScrollingMovementMethod()
+        enemyWeapons = view.findViewById(R.id.enemyWeaponList)
+        enemyWeapons.movementMethod = ScrollingMovementMethod()
+
+        doneButton = view.findViewById(R.id.doneEncounterButton)
+        deleteButton = view.findViewById(R.id.encounterViewDeleteButton)
+
         activity?.title =  "Encounter"
+
+        doneButton.setOnClickListener{
+            view.findNavController().navigate(R.id.encounterViewToEncounterRecyclerView)
+        }
+
+        deleteButton.setOnClickListener{
+            encounterDetailViewModel.deleteEncounter(encounter)
+            view.findNavController().navigate(R.id.encounterViewToEncounterRecyclerView)
+        }
 
         return view;
     }
@@ -53,7 +74,15 @@ class EncounterViewer : Fragment() {
     private fun updateUI(){
         crTextView.text = encounter.encCR.toString()
         terrainTextView.text = encounter.encTerrain
-        // TODO the stuff for scroll view with the monsters
+
+        enemyList.text = "${encounter.encMonsters[0]} \n"
+        for(i in 1 until encounter.encMonsters.size){
+            enemyList.text = "${enemyList.text}${encounter.encMonsters[i]} \n"
+        }
+        enemyWeapons.text = "${encounter.monsterWeapons[0]} \n"
+        for(i in 1 until encounter.monsterWeapons.size){
+            enemyWeapons.text = "${enemyWeapons.text}${encounter.monsterWeapons[i]} \n"
+        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -61,8 +90,8 @@ class EncounterViewer : Fragment() {
         encounterDetailViewModel.encounterLiveData.observe(
             viewLifecycleOwner,
             androidx.lifecycle.Observer {
-                enc -> enc?.let {
-                this.encounter = enc
+                    encounter -> encounter?.let {
+                this.encounter = encounter
                 updateUI()
             }
             }

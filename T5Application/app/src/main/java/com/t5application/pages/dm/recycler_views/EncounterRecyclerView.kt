@@ -85,7 +85,6 @@ class EncounterRecyclerView : Fragment() {
     }
 
     private inner class EncounterHolder(view: View):RecyclerView.ViewHolder(view), View.OnClickListener{
-        private val nameTextView: TextView = itemView.findViewById(R.id.nameTextViewENC)
         private val combatRatingTextView: TextView = itemView.findViewById(R.id.combatRatingTextView)
         private val monsterNumberTextView: TextView = itemView.findViewById(R.id.monsterNumberTextView)
         private val monstersTextView: TextView = itemView.findViewById(R.id.monstersTextView)
@@ -97,7 +96,6 @@ class EncounterRecyclerView : Fragment() {
 
         fun bind(encounter: Encounter){
             this.encounter = encounter
-            nameTextView.text = this.encounter.encName
             combatRatingTextView.text = this.encounter.encCR.toString()
             monsterNumberTextView.text = this.encounter.encMonsterNumber.toString()
             monstersTextView.text = this.encounter.encMonsters[0]

@@ -69,28 +69,28 @@ class CreateEncounter : Fragment() {
 
                     if(terrains[terrainSpinner.selectedItemPosition] == "Forest"){
                         println("Forest")
-                        for(o in 0..enemyNumbers[enemyNumberSpinner.selectedItemPosition].toInt()) {
+                        for(o in 0 until enemyNumbers[enemyNumberSpinner.selectedItemPosition].toInt()) {
                             monsterNames.add(resources.getStringArray(R.array.forestEnemy)[i])
                             monsterWeapons.add(resources.getStringArray(R.array.forestWeapons)[i])
                         }
                         break
                     }
                     else if(terrains[terrainSpinner.selectedItemPosition] == "Hills"){
-                        for(o in 0..enemyNumbers[enemyNumberSpinner.selectedItemPosition].toInt()) {
+                        for(o in 0 until enemyNumbers[enemyNumberSpinner.selectedItemPosition].toInt()) {
                             monsterNames.add(resources.getStringArray(R.array.hillEnemy)[i])
                             monsterWeapons.add(resources.getStringArray(R.array.hillWeapons)[i])
                         }
                         break
                     }
                     else if(terrains[terrainSpinner.selectedItemPosition] == "Mountains"){
-                        for(o in 0..enemyNumbers[enemyNumberSpinner.selectedItemPosition].toInt()) {
+                        for(o in 0 until enemyNumbers[enemyNumberSpinner.selectedItemPosition].toInt()) {
                             monsterNames.add(resources.getStringArray(R.array.mountainEnemy)[i])
                             monsterWeapons.add(resources.getStringArray(R.array.mountainWeapons)[i])
                         }
                         break
                     }
                     else{
-                        for(o in 0..enemyNumbers[enemyNumberSpinner.selectedItemPosition].toInt()) {
+                        for(o in 0 until enemyNumbers[enemyNumberSpinner.selectedItemPosition].toInt()) {
                             monsterNames.add(resources.getStringArray(R.array.swampEnemy)[i])
                             monsterWeapons.add(resources.getStringArray(R.array.swampWeapons)[i])
                         }

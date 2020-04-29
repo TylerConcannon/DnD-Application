@@ -6,7 +6,7 @@ import java.util.*
 
 @Entity(tableName = "encounter_database")
 class Encounter(@PrimaryKey val id: UUID = UUID.randomUUID(),
-                var encName: String = "DEFAULT",
+                var encName: String = "ENCOUNTER",
                 var encCR: Int = -1,
                 var encMonsterNumber: Int = -1,
                 var encMonsters: List<String> = listOf(),

@@ -52,7 +52,7 @@
             android:id="@+id/CreateEncounterToEncounterViewer"
             app:destination="@id/encounterViewer"
             app:popUpTo="@id/encounterRecyclerView"
-            app:popUpToInclusive="true" />
+            app:popUpToInclusive="false" />
     </fragment>
     <fragment
         android:id="@+id/createTown"
@@ -144,9 +144,7 @@
         android:label="EncounterRecyclerView" >
         <action
             android:id="@+id/EncounterRecyclerViewToCreateEncounter"
-            app:destination="@id/createEncounter"
-            app:popUpTo="@id/encounterRecyclerView"
-            app:popUpToInclusive="true" />
+            app:destination="@id/createEncounter" />
         <action
             android:id="@+id/EncounterRecyclerViewToEncounterView"
             app:destination="@id/encounterViewer"
