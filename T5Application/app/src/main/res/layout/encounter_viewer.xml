@@ -22,7 +22,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <TextView
-        android:id="@+id/enemyNameList"
+        android:id="@+id/enemyWeaponList"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -39,10 +39,10 @@
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/textView7"
-        app:layout_constraintTop_toBottomOf="@+id/enemyWeaponList" />
+        app:layout_constraintTop_toBottomOf="@+id/enemyNameList" />
 
     <TextView
-        android:id="@+id/enemyWeaponList"
+        android:id="@+id/enemyNameList"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -54,8 +54,8 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="68dp"
-        android:text="CR:"
+        android:layout_marginTop="16dp"
+        android:text="XP:"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -102,23 +102,24 @@
         app:layout_constraintTop_toTopOf="@+id/textView3" />
 
     <Button
-        android:id="@+id/doneTownButton"
+        android:id="@+id/doneEncounterButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Done Viewing"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/townViewDeleteButton"
+        app:layout_constraintEnd_toStartOf="@+id/encounterViewDeleteButton"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/enemyNameList" />
+        app:layout_constraintTop_toBottomOf="@+id/enemyWeaponList"
+        app:layout_constraintVertical_bias="0.25" />
 
     <Button
-        android:id="@+id/townViewDeleteButton"
+        android:id="@+id/encounterViewDeleteButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="88dp"
         android:text="delete"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/doneTownButton"
+        app:layout_constraintTop_toTopOf="@+id/doneEncounterButton"
         app:layout_constraintVertical_bias="0.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>
