@@ -60,35 +60,39 @@ class CreateEncounter : Fragment() {
             var monsterWeapons= mutableListOf<String>()
 
             for(i in 3 downTo 0){
+                println(resources.getStringArray(R.array.cr)[i].toInt())
                 if(resources.getStringArray(R.array.cr)[i].toInt() > (crEditText.text.toString().toInt() / enemyNumbers[enemyNumberSpinner.selectedItemPosition].toInt())) {     //If(CR from string list > userCR/user#) continue; else (add same monster * user#)
+                    println(resources.getStringArray(R.array.cr)[i] + "     " + (crEditText.text.toString().toInt() / enemyNumbers[enemyNumberSpinner.selectedItemPosition].toInt()))
                     continue
                 }
                 else{
+
                     if(terrains[terrainSpinner.selectedItemPosition] == "Forest"){
+                        println("Forest")
                         for(o in 0..enemyNumbers[enemyNumberSpinner.selectedItemPosition].toInt()) {
-                            monsterNames.add(resources.getStringArray(R.array.forestEnemy)[o])
-                            monsterWeapons.add(resources.getStringArray(R.array.forestWeapons)[o])
+                            monsterNames.add(resources.getStringArray(R.array.forestEnemy)[i])
+                            monsterWeapons.add(resources.getStringArray(R.array.forestWeapons)[i])
                         }
                         break
                     }
                     else if(terrains[terrainSpinner.selectedItemPosition] == "Hills"){
                         for(o in 0..enemyNumbers[enemyNumberSpinner.selectedItemPosition].toInt()) {
-                            monsterNames.add(resources.getStringArray(R.array.hillEnemy)[o])
-                            monsterWeapons.add(resources.getStringArray(R.array.hillWeapons)[o])
+                            monsterNames.add(resources.getStringArray(R.array.hillEnemy)[i])
+                            monsterWeapons.add(resources.getStringArray(R.array.hillWeapons)[i])
                         }
                         break
                     }
                     else if(terrains[terrainSpinner.selectedItemPosition] == "Mountains"){
                         for(o in 0..enemyNumbers[enemyNumberSpinner.selectedItemPosition].toInt()) {
-                            monsterNames.add(resources.getStringArray(R.array.mountainEnemy)[o])
-                            monsterWeapons.add(resources.getStringArray(R.array.mountainWeapons)[o])
+                            monsterNames.add(resources.getStringArray(R.array.mountainEnemy)[i])
+                            monsterWeapons.add(resources.getStringArray(R.array.mountainWeapons)[i])
                         }
                         break
                     }
                     else{
                         for(o in 0..enemyNumbers[enemyNumberSpinner.selectedItemPosition].toInt()) {
-                            monsterNames.add(resources.getStringArray(R.array.swampEnemy)[o])
-                            monsterWeapons.add(resources.getStringArray(R.array.swampWeapons)[o])
+                            monsterNames.add(resources.getStringArray(R.array.swampEnemy)[i])
+                            monsterWeapons.add(resources.getStringArray(R.array.swampWeapons)[i])
                         }
                         break
                     }
