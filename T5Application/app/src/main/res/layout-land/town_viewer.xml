@@ -5,21 +5,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".pages.dm.content.npc.NPCViewer">
+    tools:context=".pages.dm.content.town.TownViewer">
 
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="68dp"
         android:text="Name:"
         android:textSize="30sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.34"
+        app:layout_constraintHorizontal_bias="0.35"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.01999998" />
 
     <TextView
         android:id="@+id/textView3"
@@ -27,7 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="21dp"
         android:layout_marginTop="32dp"
-        android:text="Race:"
+        android:text="Size:"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/textView"
@@ -41,13 +42,41 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="21dp"
         android:layout_marginTop="32dp"
-        android:text="Occupation:"
+        android:text="Terrain:"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/textView"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="21dp"
+        android:layout_marginTop="32dp"
+        android:text="Building:"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="21dp"
+        android:layout_marginTop="32dp"
+        android:text="Politics:"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <TextView
         android:id="@+id/nameTextViewNPC"
@@ -62,7 +91,7 @@
         app:layout_constraintTop_toTopOf="@+id/textView" />
 
     <TextView
-        android:id="@+id/raceTextViewNPC"
+        android:id="@+id/sizeTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="ffdfbsdfbsdf"
@@ -74,7 +103,7 @@
         app:layout_constraintTop_toTopOf="@+id/textView3" />
 
     <TextView
-        android:id="@+id/occupationTextViewNPC"
+        android:id="@+id/terrainTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="ffdfbsdfbsdf"
@@ -85,28 +114,51 @@
         app:layout_constraintStart_toEndOf="@+id/textView"
         app:layout_constraintTop_toTopOf="@+id/textView4" />
 
+    <TextView
+        android:id="@+id/buildingTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ffdfbsdfbsdf"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.095"
+        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintTop_toTopOf="@+id/textView5" />
+
+    <TextView
+        android:id="@+id/politicsTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ffdfbsdfbsdf"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintTop_toTopOf="@+id/textView6" />
+
     <Button
-        android:id="@+id/doneNPCButton"
+        android:id="@+id/doneTownButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Done Viewing"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.25"
+        app:layout_constraintEnd_toStartOf="@+id/townViewDeleteButton"
+        app:layout_constraintHorizontal_bias="0.28"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
-        app:layout_constraintVertical_bias="0.19" />
+        app:layout_constraintTop_toBottomOf="@+id/politicsTextView"
+        app:layout_constraintVertical_bias="0.223" />
 
     <Button
-        android:id="@+id/npcViewDeleteButton"
+        android:id="@+id/townViewDeleteButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="88dp"
         android:text="delete"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/doneNPCButton"
-        app:layout_constraintTop_toTopOf="@+id/doneNPCButton"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintHorizontal_bias="0.76"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/politicsTextView"
+        app:layout_constraintVertical_bias="0.223" />
 </androidx.constraintlayout.widget.ConstraintLayout>
