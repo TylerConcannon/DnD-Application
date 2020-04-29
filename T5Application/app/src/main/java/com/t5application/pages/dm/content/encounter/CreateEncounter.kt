@@ -56,8 +56,8 @@ class CreateEncounter : Fragment() {
 
 
             // Concannon's Code Start ------------------------------------------------------------------------------------------
-            var monsterNames= mutableSetOf<String>()
-            var monsterWeapons= mutableSetOf<String>()
+            var monsterNames= mutableListOf<String>()
+            var monsterWeapons= mutableListOf<String>()
 
             for(i in 3 downTo 0){
                 if(resources.getStringArray(R.array.cr)[i].toInt() > (crEditText.text.toString().toInt() / enemyNumbers[enemyNumberSpinner.selectedItemPosition].toInt())) {     //If(CR from string list > userCR/user#) continue; else (add same monster * user#)
@@ -96,7 +96,8 @@ class CreateEncounter : Fragment() {
             }
             // Concannon's Code End ------------------------------------------------------------------------------------------
 
-
+            encounter.monsterWeapons = monsterWeapons.toList()
+            encounter.encMonsters = monsterNames.toList()
             encounter.encMonsterNumber = enemyNumbers[enemyNumberSpinner.selectedItemPosition].toInt()
             encounter.encCR = crEditText.text.toString().toInt()
             encounter.encTerrain = terrains[terrainSpinner.selectedItemPosition]

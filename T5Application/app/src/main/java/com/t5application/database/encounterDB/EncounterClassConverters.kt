@@ -15,4 +15,14 @@ class EncounterClassConverters {
         return uuid?.toString()
     }
 
+    @TypeConverter
+    fun fromString(string: String): List<String> {
+        return string.split("::").map { it }
+    }
+
+    @TypeConverter
+    fun fromList(list: List<String>): String{
+        return list.joinToString(separator = "::")
+    }
+
 }

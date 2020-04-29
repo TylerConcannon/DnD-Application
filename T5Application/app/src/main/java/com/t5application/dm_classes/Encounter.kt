@@ -9,7 +9,8 @@ class Encounter(@PrimaryKey val id: UUID = UUID.randomUUID(),
                 var encName: String = "DEFAULT",
                 var encCR: Int = -1,
                 var encMonsterNumber: Int = -1,
-                var encMonsters: String = "DEFAULT",
+                var encMonsters: List<String> = listOf(),
+                var monsterWeapons: List<String> = listOf(),
                 var encTerrain: String = "DEFAULT") {
 
     fun getID(): UUID{
@@ -28,12 +29,12 @@ class Encounter(@PrimaryKey val id: UUID = UUID.randomUUID(),
         return encMonsterNumber;
     }
 
-    fun getMonsters(): String {
+    fun getMonsters(): List<String> {
         return encMonsters;
     }
 
     fun printEncounter(){
-        println("Name: $encName CR: $encCR Monster Number: $encMonsterNumber Monsters: $encMonsters")
+        println("Name: $encName CR: $encCR Monster Number: $encMonsterNumber")
     }
 
 }

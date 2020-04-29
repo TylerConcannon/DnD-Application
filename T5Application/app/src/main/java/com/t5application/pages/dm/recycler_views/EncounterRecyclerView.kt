@@ -100,7 +100,7 @@ class EncounterRecyclerView : Fragment() {
             nameTextView.text = this.encounter.encName
             combatRatingTextView.text = this.encounter.encCR.toString()
             monsterNumberTextView.text = this.encounter.encMonsterNumber.toString()
-            monstersTextView.text = this.encounter.encMonsters
+            monstersTextView.text = this.encounter.encMonsters[0]
         }
 
         override fun onClick(v: View?) {
