@@ -38,5 +38,7 @@ class Acolyte : Background() {
         get() = localProficiencies
         set(value) = TODO()
 
-
+    override fun toString(): String {
+        return "Acolyte"
+    }
 }

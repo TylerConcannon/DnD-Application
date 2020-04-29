@@ -23,4 +23,7 @@ class Elf: Race(){
         get() = mutableListOf("Common", "Elvish")
         set(value) = TODO()
 
+    override fun toString(): String {
+        return "Elf"
+    }
 }

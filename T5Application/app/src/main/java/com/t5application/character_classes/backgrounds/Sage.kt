@@ -32,4 +32,8 @@ class Sage: Background() {
     var Background.proficiencies: MutableList<String>
         get() = localProficiencies
         set(value) = TODO()
+
+    override fun toString(): String {
+        return "Sage"
+    }
 }

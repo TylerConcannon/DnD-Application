@@ -22,4 +22,7 @@ class Halfling: Race(){
         get() = mutableListOf("Common", "Halfling")
         set(value) = TODO()
 
+    override fun toString(): String {
+        return "Halfling"
+    }
 }

@@ -32,4 +32,7 @@ class Noble: Background() {
         get() = localProficiencies
         set(value) = TODO()
 
+    override fun toString(): String {
+        return "Noble"
+    }
 }

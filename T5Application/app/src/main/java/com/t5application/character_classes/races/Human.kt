@@ -14,4 +14,7 @@ class Human: Race(){
         get() = mutableListOf("Common")
         set(value) = TODO()
 
+    override fun toString(): String {
+        return "Human"
+    }
 }

@@ -23,4 +23,7 @@ class Dwarf: Race(){
         get() = mutableListOf("Common", "Dwarvish")
         set(value) = TODO()
 
+    override fun toString(): String {
+        return "Dwarf"
+    }
 }

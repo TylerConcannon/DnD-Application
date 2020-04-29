@@ -9,7 +9,7 @@
     tools:context=".pages.PlayerDMChoice">
 
     <ImageView
-        android:id="@+id/musicPlayImage2"
+        android:id="@+id/musicPlayImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -21,7 +21,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/musicMuteImage2"
+        android:id="@+id/musicMuteImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"

@@ -25,4 +25,7 @@ class Fighter: Class(){
         }
         set(value) = TODO()
 
+    override fun toString(): String {
+        return "Fighter"
+    }
 }

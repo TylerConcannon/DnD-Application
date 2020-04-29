@@ -62,19 +62,6 @@ class PlayerDMChoice : Fragment() {
             musicOnImage.isVisible = true
         }
 
-        /*MusicButton.setOnClickListener{
-
-
-            mediaPlayer?.isPlaying
-            playing = if(!playing){
-                mediaPlayer?.start()
-                true
-            } else {
-                mediaPlayer?.pause()
-                false
-            }
-        }*/
-
         return view
         }
     }

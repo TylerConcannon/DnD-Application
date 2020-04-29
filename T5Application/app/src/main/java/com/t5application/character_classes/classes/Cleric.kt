@@ -49,4 +49,8 @@ class Cleric: Class(){
             }
         }
         set(value) = TODO()
+
+    override fun toString(): String {
+        return "Cleric"
+    }
 }

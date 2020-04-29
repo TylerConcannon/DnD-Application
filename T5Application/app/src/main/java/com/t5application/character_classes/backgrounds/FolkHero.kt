@@ -33,4 +33,8 @@ class FolkHero: Background() {
         get() = localProficiencies
         set(value) = TODO()
 
+    override fun toString(): String {
+        return "Folk Hero"
+    }
+
 }

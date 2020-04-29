@@ -50,5 +50,7 @@ class Wizard: Class(){
         }
         set(value) = TODO()
 
-
+    override fun toString(): String {
+        return "Wizard"
+    }
 }

@@ -42,4 +42,7 @@ class Rogue: Class(){
             }
         }
 
+    override fun toString(): String {
+        return "Rogue"
+    }
 }
