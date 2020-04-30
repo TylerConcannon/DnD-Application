@@ -71,18 +71,18 @@ class CreateAdventure : Fragment() {
         else cr = 1000
 
         for(i in 0 until encounterNumberSpinner.selectedItemPosition.toInt()) {
-            adventure.encounters.add(createEncounter((1..12).random(), terrain, cr))
+            createEncounter((1..12).random(), terrain, cr)
         }
 
         for(i in 0..lengthSpinner.selectedItemPosition.toInt()){
-            adventure.towns.add(createTown(i))
+            createTown(i)
         }
+        //End Logic
+
 
         generate.setOnClickListener {
             view.findNavController().navigate(R.id.CreateAdventureToAdventureViewer)
         }
-        //End Logic
-
 
         adventureDetailViewModel.saveAdventure(adventure)
         adventureListViewModel.adventures.add(adventure)
@@ -109,7 +109,7 @@ class CreateAdventure : Fragment() {
         encounterNumberSpinner.adapter = adapter
     }
 
-    private fun createEncounter(enemyNumbers: Int, terrain: Int, cr: Int): Encounter{
+    private fun createEncounter(enemyNumbers: Int, terrain: Int, cr: Int) {
         var encounter: Encounter = Encounter()
         for(i in 3 downTo 0){
             if(resources.getStringArray(R.array.cr)[i].toInt() != cr) {
@@ -148,18 +148,25 @@ class CreateAdventure : Fragment() {
                 encounter.encMonsters = monsterNames
                 encounter.monsterWeapons = monsterWeapons
 
-                return encounter
+                var names: String = ""
+                var weapons: String = ""
+
+                for(k in 0 until monsterNames.size){
+                    names += monsterNames[k] + "~~"
+                    weapons += monsterWeapons[k] + "~~"
+                }
+
+                adventure.encounterNames += names + "::"
+                adventure.encounterWeapons += weapons + "::"
             }
         }
-
-        return encounter
     }
 
-    private fun createTown(length: Int): Town {
-        var town: Town = Town()
+    private fun createTown(length: Int) {
 
-        town.townName = resources.getStringArray(R.array.townNames)[length]
+        var name= resources.getStringArray(R.array.townNames)[length]
 
-        return town
+        adventure.townNames += name + "::"
+
     }
 }
