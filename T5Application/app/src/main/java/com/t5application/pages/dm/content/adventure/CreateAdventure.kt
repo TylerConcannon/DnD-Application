@@ -11,8 +11,15 @@ import android.widget.Spinner
 import androidx.navigation.findNavController
 
 import com.t5application.R
+import com.t5application.dm_classes.Adventure
+import com.t5application.dm_classes.Encounter
+import com.t5application.dm_classes.Town
+import kotlinx.android.synthetic.main.create_encounter.*
 
 class CreateAdventure : Fragment() {
+
+    //Adventure
+    private lateinit var adventure: Adventure
 
     //Buttons
     private lateinit var generate: Button
@@ -46,9 +53,32 @@ class CreateAdventure : Fragment() {
 
         generate = view.findViewById(R.id.confirmAdventureButton)
 
+
+        //Logic
+        adventure.length = resources.getStringArray(R.array.townSizes).get(lengthSpinner.selectedItemPosition.toInt())
+        adventure.questType = resources.getStringArray(R.array.questType).get(typeSpinner.selectedItemPosition.toInt())
+
+        var terrain: Int = (1..4).random()
+        var cr: Int = (1..4).random()
+
+        if(cr == 1) cr = 50
+        else if(cr == 2) cr = 100
+        else if(cr == 3) cr = 700
+        else cr = 1000
+
+        for(i in 0 until encounterNumberSpinner.selectedItemPosition.toInt()) {
+            adventure.encounters.add(createEncounter((1..12).random(), terrain, cr))
+        }
+
+        for(i in 0..lengthSpinner.selectedItemPosition.toInt()){
+            adventure.towns.add(createTown(i))
+        }
+
         generate.setOnClickListener {
             view.findNavController().navigate(R.id.CreateAdventureToAdventureViewer)
         }
+        //End Logic
+
 
         return view
     }
@@ -69,5 +99,59 @@ class CreateAdventure : Fragment() {
         val adapter = ArrayAdapter(requireActivity().applicationContext, android.R.layout.simple_selectable_list_item, levels)
 
         encounterNumberSpinner.adapter = adapter
+    }
+
+    private fun createEncounter(enemyNumbers: Int, terrain: Int, cr: Int): Encounter{
+        var encounter: Encounter = Encounter()
+        for(i in 3 downTo 0){
+            if(resources.getStringArray(R.array.cr)[i].toInt() != cr) {
+                continue
+            }
+            else{
+                var monsterNames= mutableListOf<String>()
+                var monsterWeapons= mutableListOf<String>()
+
+                if(terrain == 1){  //forest
+                    println("Forest")
+                    for(o in 0 until enemyNumbers) {
+                        monsterNames.add(resources.getStringArray(R.array.forestEnemy)[i])
+                        monsterWeapons.add(resources.getStringArray(R.array.forestWeapons)[i])
+                    }
+                }
+                else if(terrain == 2){  //hills
+                    for(o in 0 until enemyNumbers) {
+                        monsterNames.add(resources.getStringArray(R.array.hillEnemy)[i])
+                        monsterWeapons.add(resources.getStringArray(R.array.hillWeapons)[i])
+                    }
+                }
+                else if(terrain == 3){  //mountains
+                    for(o in 0 until enemyNumbers) {
+                        monsterNames.add(resources.getStringArray(R.array.mountainEnemy)[i])
+                        monsterWeapons.add(resources.getStringArray(R.array.mountainWeapons)[i])
+                    }
+                }
+                else{
+                    for(o in 0 until enemyNumbers) {    //swamp
+                        monsterNames.add(resources.getStringArray(R.array.swampEnemy)[i])
+                        monsterWeapons.add(resources.getStringArray(R.array.swampWeapons)[i])
+                    }
+                }
+
+                encounter.encMonsters = monsterNames
+                encounter.monsterWeapons = monsterWeapons
+
+                return encounter
+            }
+        }
+
+        return encounter
+    }
+
+    private fun createTown(length: Int): Town {
+        var town: Town = Town()
+
+        town.townName = resources.getStringArray(R.array.townNames)[length]
+
+        return town
     }
 }

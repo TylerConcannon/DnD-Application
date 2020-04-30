@@ -61,12 +61,11 @@
         android:id="@+id/strTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
         android:text="Strength"
         android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="@+id/dexTextView"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/dexTextView"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nameTextView" />
 
     <TextView
@@ -95,12 +94,11 @@
         android:id="@+id/dexTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:text="Dexterity"
         android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="@+id/conTextView"
-        app:layout_constraintStart_toStartOf="@+id/conTextView"
-        app:layout_constraintTop_toBottomOf="@+id/strMod" />
+        app:layout_constraintEnd_toStartOf="@+id/conTextView"
+        app:layout_constraintStart_toEndOf="@+id/strTextView"
+        app:layout_constraintTop_toTopOf="@+id/strTextView" />
 
     <TextView
         android:id="@+id/dexNum"
@@ -128,12 +126,11 @@
         android:id="@+id/conTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
         android:text="Constitution"
         android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dexMod" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/dexTextView" />
 
     <TextView
         android:id="@+id/conNum"
@@ -164,9 +161,9 @@
         android:layout_marginTop="16dp"
         android:text="Intelligence"
         android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="@+id/conTextView"
-        app:layout_constraintStart_toStartOf="@+id/conTextView"
-        app:layout_constraintTop_toBottomOf="@+id/conMod" />
+        app:layout_constraintEnd_toEndOf="@+id/strTextView"
+        app:layout_constraintStart_toStartOf="@+id/strTextView"
+        app:layout_constraintTop_toBottomOf="@+id/strMod" />
 
     <TextView
         android:id="@+id/intNum"
@@ -194,12 +191,11 @@
         android:id="@+id/wisTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:text="Wisdom"
         android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="@+id/conTextView"
-        app:layout_constraintStart_toStartOf="@+id/conTextView"
-        app:layout_constraintTop_toBottomOf="@+id/intMod" />
+        app:layout_constraintEnd_toEndOf="@+id/dexTextView"
+        app:layout_constraintStart_toStartOf="@+id/dexTextView"
+        app:layout_constraintTop_toTopOf="@+id/intTextView" />
 
     <TextView
         android:id="@+id/wisNum"
@@ -227,12 +223,11 @@
         android:id="@+id/chaTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:text="Charisma"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="@+id/conTextView"
         app:layout_constraintStart_toStartOf="@+id/conTextView"
-        app:layout_constraintTop_toBottomOf="@+id/wisMod" />
+        app:layout_constraintTop_toTopOf="@+id/wisTextView" />
 
     <TextView
         android:id="@+id/chaNum"
@@ -260,35 +255,36 @@
         android:id="@+id/profTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
         android:text="Proficiencies"
         android:textSize="20sp"
-        app:layout_constraintStart_toEndOf="@+id/strTextView"
-        app:layout_constraintTop_toTopOf="@+id/strTextView" />
-
-    <TextView
-        android:id="@+id/weaTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="Weapons"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="@+id/profList"
-        app:layout_constraintTop_toBottomOf="@+id/profList" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/intMod" />
 
     <TextView
         android:id="@+id/profList"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginTop="8dp"
         android:text="blah\n\nblah\n\nblah"
         app:layout_constraintStart_toStartOf="@+id/profTextView"
         app:layout_constraintTop_toBottomOf="@+id/profTextView" />
 
     <TextView
-        android:id="@+id/weaList"
+        android:id="@+id/weaTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Weapons"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/profTextView"
+        app:layout_constraintTop_toTopOf="@+id/profTextView" />
+
+    <TextView
+        android:id="@+id/weaList"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginTop="8dp"
         android:text="blah\n\nblah\n\nblah"
         app:layout_constraintStart_toStartOf="@+id/weaTextView"
@@ -298,11 +294,11 @@
         android:id="@+id/featTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:text="Feats/Abilties"
         android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="@+id/weaList"
-        app:layout_constraintTop_toBottomOf="@+id/weaList" />
+        app:layout_constraintStart_toStartOf="@+id/profTextView"
+        app:layout_constraintTop_toBottomOf="@+id/profList" />
 
     <View
         android:id="@+id/divider2"
@@ -311,29 +307,28 @@
         android:layout_marginStart="1dp"
         android:layout_marginEnd="1dp"
         android:background="#000000"
-        app:layout_constraintBottom_toTopOf="@+id/profTextView"
+        app:layout_constraintBottom_toTopOf="@+id/dexTextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.79" />
+        app:layout_constraintVertical_bias="0.92" />
 
     <View
-        android:id="@+id/divider3"
-        android:layout_width="1dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:id="@+id/divider"
+        android:layout_width="409dp"
+        android:layout_height="1dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp"
         android:background="#000000"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/featTextView"
-        app:layout_constraintHorizontal_bias="0.91"
+        app:layout_constraintBottom_toTopOf="@+id/profTextView"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nameTextView"
-        app:layout_constraintVertical_bias="0.26999998" />
+        app:layout_constraintTop_toBottomOf="@+id/wisMod" />
 
     <TextView
         android:id="@+id/featList"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginTop="8dp"
         android:text="blah\n\nblah\n\nblah"
         app:layout_constraintStart_toStartOf="@+id/featTextView"

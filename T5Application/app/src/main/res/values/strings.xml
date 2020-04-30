@@ -142,6 +142,13 @@
         <item>3</item>
     </string-array>
 
+    <string-array name="townNames">
+        <item>Isengard</item>
+        <item>Rivendell</item>
+        <item>Mordor</item>
+        <item>Shire</item>
+    </string-array>
+
     <!-- Random Encounter Lists -->
     <string-array name="enemyNumber">
         <item>1</item>
@@ -218,6 +225,8 @@
         <item>700</item>
         <item>1800</item>
     </string-array>
+
+
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

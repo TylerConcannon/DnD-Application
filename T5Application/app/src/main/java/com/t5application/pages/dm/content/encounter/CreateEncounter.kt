@@ -60,13 +60,10 @@ class CreateEncounter : Fragment() {
             var monsterWeapons= mutableListOf<String>()
 
             for(i in 3 downTo 0){
-                println(resources.getStringArray(R.array.cr)[i].toInt())
                 if(resources.getStringArray(R.array.cr)[i].toInt() > (crEditText.text.toString().toInt() / enemyNumbers[enemyNumberSpinner.selectedItemPosition].toInt())) {     //If(CR from string list > userCR/user#) continue; else (add same monster * user#)
-                    println(resources.getStringArray(R.array.cr)[i] + "     " + (crEditText.text.toString().toInt() / enemyNumbers[enemyNumberSpinner.selectedItemPosition].toInt()))
                     continue
                 }
                 else{
-
                     if(terrains[terrainSpinner.selectedItemPosition] == "Forest"){
                         println("Forest")
                         for(o in 0 until enemyNumbers[enemyNumberSpinner.selectedItemPosition].toInt()) {
