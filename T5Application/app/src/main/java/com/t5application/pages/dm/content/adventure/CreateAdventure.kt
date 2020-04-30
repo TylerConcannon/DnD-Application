@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.Spinner
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
 
 import com.t5application.R
@@ -28,6 +29,9 @@ class CreateAdventure : Fragment() {
     private lateinit var lengthSpinner: Spinner
     private lateinit var typeSpinner: Spinner
     private lateinit var encounterNumberSpinner: Spinner
+
+    private val adventureDetailViewModel: AdventureDetailViewModel by activityViewModels()
+    private val adventureListViewModel: AdventureListViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -79,6 +83,10 @@ class CreateAdventure : Fragment() {
         }
         //End Logic
 
+
+        adventureDetailViewModel.saveAdventure(adventure)
+        adventureListViewModel.adventures.add(adventure)
+        adventureDetailViewModel.idOfNavigation = adventure.id
 
         return view
     }
