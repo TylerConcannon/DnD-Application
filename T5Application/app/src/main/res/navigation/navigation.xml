@@ -9,7 +9,11 @@
         android:id="@+id/adventureViewer"
         android:name="com.t5application.pages.dm.content.adventure.AdventureViewer"
         android:label="adventure_viewer"
-        tools:layout="@layout/adventure_viewer"/>
+        tools:layout="@layout/adventure_viewer">
+        <action
+            android:id="@+id/AdventureViewerToAdventureRecyclerView"
+            app:destination="@id/adventureRecyclerView" />
+    </fragment>
     <fragment
         android:id="@+id/townViewer"
         android:name="com.t5application.pages.dm.content.town.TownViewer"
@@ -73,7 +77,7 @@
         <action
             android:id="@+id/CreateAdventureToAdventureViewer"
             app:destination="@id/adventureViewer"
-            app:popUpTo="@id/selectRecyclerView"
+            app:popUpTo="@id/adventureRecyclerView"
             app:popUpToInclusive="false" />
     </fragment>
     <fragment
@@ -164,6 +168,9 @@
         <action
             android:id="@+id/SelectRecyclerViewToNPCRecyclerView"
             app:destination="@id/NPCRecyclerView" />
+        <action
+            android:id="@+id/SelectRecyclerViewToAdventureRecyclerView"
+            app:destination="@id/adventureRecyclerView" />
     </fragment>
     <fragment
         android:id="@+id/NPCRecyclerView"
@@ -178,5 +185,19 @@
         <action
             android:id="@+id/NPCRecyclerViewToCreateNPC"
             app:destination="@id/createNPC" />
+    </fragment>
+    <fragment
+        android:id="@+id/adventureRecyclerView"
+        android:name="com.t5application.pages.dm.recycler_views.AdventureRecyclerView"
+        android:label="adventure_recycler_view"
+        tools:layout="@layout/adventure_recycler_view" >
+        <action
+            android:id="@+id/AdventureRecyclerViewToAdventureViewer"
+            app:destination="@id/adventureViewer"
+            app:popUpTo="@id/adventureRecyclerView"
+            app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/AdventureRecyclerViewToCreateAdventure"
+            app:destination="@id/createAdventure" />
     </fragment>
 </navigation>
