@@ -1,5 +1,6 @@
 package com.t5application.pages.dm.content.adventure
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.text.method.ScrollingMovementMethod
 import androidx.fragment.app.Fragment
@@ -78,6 +79,7 @@ class AdventureViewer : Fragment() {
         return view
     }
 
+
     private fun updateUI(){ //TODO
         nameTextView.text = adventure.name
         lengthTextView.text = adventure.length
@@ -95,6 +97,11 @@ class AdventureViewer : Fragment() {
             var town = Town()
             town.townName = adventure.townNames[i]
             towns.add(town)
+        }
+
+        townNames.text = "${towns[0]} \n"
+        for(i in 1 until towns.size){
+            townNames.text = "${townNames.text}${towns[i]} \n"
         }
     }
 
