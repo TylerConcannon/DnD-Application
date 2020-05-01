@@ -49,7 +49,7 @@ class CreateAdventure : Fragment() {
         val lengths = resources.getStringArray(R.array.length)
         lengthSpinner(lengths)
 
-        val types = resources.getStringArray(R.array.enemyNumber) // TODO Fix Later
+        val types = resources.getStringArray(R.array.questType)
         typeSpinner(types)
 
         val encounterNumber = resources.getStringArray(R.array.encounterNumber)

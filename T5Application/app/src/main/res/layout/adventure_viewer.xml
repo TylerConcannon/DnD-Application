@@ -9,6 +9,16 @@
 
 
     <TextView
+        android:id="@+id/textView20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:text="Encounters"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/townNamesList"
+        app:layout_constraintTop_toTopOf="@+id/textView14" />
+
+    <TextView
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -21,11 +31,11 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/adventureNameTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:text="TextView"
+        android:text="temp"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/textView8"
         app:layout_constraintStart_toEndOf="@+id/textView8"
@@ -36,17 +46,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="TextView"
+        android:text="Length"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="@+id/textView8"
         app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
     <TextView
-        android:id="@+id/textView11"
+        android:id="@+id/adventureLengthTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:text="TextView"
+        android:text="temp"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/textView10"
         app:layout_constraintStart_toEndOf="@+id/textView10"
@@ -57,17 +67,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="TextView"
+        android:text="Type"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="@+id/textView10"
         app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
     <TextView
-        android:id="@+id/textView13"
+        android:id="@+id/adventureTypeTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:text="TextView"
+        android:text="temp"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/textView12"
         app:layout_constraintStart_toEndOf="@+id/textView12"
         app:layout_constraintTop_toTopOf="@+id/textView12" />
@@ -78,19 +89,17 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="24dp"
-        android:text="TextView"
+        android:text="Town Names"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
     <TextView
-        android:id="@+id/textView15"
-        android:layout_width="0dp"
+        android:id="@+id/townNamesList"
+        android:layout_width="150dp"
         android:layout_height="100dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="32dp"
         android:text="TextView"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/textView14"
         app:layout_constraintTop_toBottomOf="@+id/textView14" />
 
@@ -99,24 +108,24 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="TextView"
+        android:text="Monsters"
         android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="@+id/textView15"
-        app:layout_constraintTop_toBottomOf="@+id/textView15" />
+        app:layout_constraintStart_toStartOf="@+id/townNamesList"
+        app:layout_constraintTop_toBottomOf="@+id/townNamesList" />
 
     <TextView
         android:id="@+id/textView18"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:text="TextView"
+        android:text="Monster Weapons"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/textView16"
-        app:layout_constraintStart_toEndOf="@+id/textView17"
+        app:layout_constraintStart_toEndOf="@+id/monsterNameTextView"
         app:layout_constraintTop_toTopOf="@+id/textView16" />
 
     <TextView
-        android:id="@+id/textView17"
+        android:id="@+id/monsterNameTextView"
         android:layout_width="150dp"
         android:layout_height="100dp"
         android:layout_marginTop="8dp"
@@ -125,10 +134,36 @@
         app:layout_constraintTop_toBottomOf="@+id/textView16" />
 
     <TextView
-        android:id="@+id/textView19"
+        android:id="@+id/monsterWeaponTextView"
         android:layout_width="150dp"
         android:layout_height="100dp"
         android:text="TextView"
         app:layout_constraintStart_toStartOf="@+id/textView18"
-        app:layout_constraintTop_toTopOf="@+id/textView17" />
+        app:layout_constraintTop_toTopOf="@+id/monsterNameTextView" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="@+id/textView20"
+        app:layout_constraintTop_toBottomOf="@+id/textView20" />
+
+    <Button
+        android:id="@+id/deleteAdventureButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Delete"
+        app:layout_constraintEnd_toEndOf="@+id/monsterWeaponTextView"
+        app:layout_constraintStart_toStartOf="@+id/monsterWeaponTextView"
+        app:layout_constraintTop_toTopOf="@+id/adventureDoneViewingButton" />
+
+    <Button
+        android:id="@+id/adventureDoneViewingButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Done Viewing"
+        app:layout_constraintEnd_toEndOf="@+id/monsterNameTextView"
+        app:layout_constraintStart_toStartOf="@+id/monsterNameTextView"
+        app:layout_constraintTop_toBottomOf="@+id/monsterNameTextView" />
 </androidx.constraintlayout.widget.ConstraintLayout>

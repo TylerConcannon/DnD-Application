@@ -68,7 +68,7 @@ class EncounterViewer : Fragment() {
             view.findNavController().navigate(R.id.encounterViewToEncounterRecyclerView)
         }
 
-        return view;
+        return view
     }
 
     private fun updateUI(){
