@@ -13,6 +13,8 @@ import androidx.navigation.findNavController
 
 import com.t5application.R
 import com.t5application.dm_classes.Adventure
+import com.t5application.dm_classes.Encounter
+import com.t5application.dm_classes.Town
 
 class AdventureViewer : Fragment() {
 
@@ -28,6 +30,9 @@ class AdventureViewer : Fragment() {
     private lateinit var deleteButton: Button
 
     private lateinit var adventure: Adventure
+
+    private lateinit var encounters: ArrayList<Encounter>
+    private lateinit var towns: ArrayList<Town>
 
     private val adventureDetailViewModel: AdventureDetailViewModel by activityViewModels()
 
@@ -73,18 +78,24 @@ class AdventureViewer : Fragment() {
         return view
     }
 
-    private fun updateUI(){/* //TODO
-        crTextView.text = encounter.encCR.toString()
-        terrainTextView.text = encounter.encTerrain
+    private fun updateUI(){ //TODO
+        nameTextView.text = adventure.name
+        lengthTextView.text = adventure.length
+        typeTextView.text = adventure.questType
 
-        enemyList.text = "${encounter.encMonsters[0]} \n"
-        for(i in 1 until encounter.encMonsters.size){
-            enemyList.text = "${enemyList.text}${encounter.encMonsters[i]} \n"
+        for (i in adventure.encounterNames.indices){
+
+            var encounter = Encounter()
+            encounter.encMonsters = adventure.encounterNames[i].split("~~")
+            encounter.monsterWeapons = adventure.encounterWeapons[i].split("~~")
+            encounters.add(encounter)
         }
-        enemyWeapons.text = "${encounter.monsterWeapons[0]} \n"
-        for(i in 1 until encounter.monsterWeapons.size){
-            enemyWeapons.text = "${enemyWeapons.text}${encounter.monsterWeapons[i]} \n"
-        }*/
+
+        for (i in adventure.townNames.indices){
+            var town = Town()
+            town.townName = adventure.townNames[i]
+            towns.add(town)
+        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

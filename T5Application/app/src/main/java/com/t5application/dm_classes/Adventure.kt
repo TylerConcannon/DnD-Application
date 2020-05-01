@@ -7,6 +7,7 @@ import kotlin.collections.ArrayList
 
 @Entity(tableName = "adventure_database")
 class Adventure (@PrimaryKey val id: UUID = UUID.randomUUID(),
+                 var name: String = "Adventure",
                  var length: String = "Short",
                  var questType: String = "Fetch") {
 
