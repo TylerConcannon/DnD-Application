@@ -1,5 +1,7 @@
 package com.t5application.character_classes
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.t5application.character_classes.backgrounds.Acolyte
 import com.t5application.character_classes.backgrounds.Background
 import com.t5application.character_classes.backgrounds.Criminal
@@ -7,18 +9,21 @@ import com.t5application.character_classes.classes.Class
 import com.t5application.character_classes.classes.Cleric
 import com.t5application.character_classes.races.Dwarf
 import com.t5application.character_classes.races.Race
+import java.util.*
 
-class Character(var name: String = "EMPTY_NAME", var race: Race = Dwarf(), var _class: Class = Cleric(), var background: Background = Acolyte(),
+@Entity(tableName = "character_database")
+class Character(@PrimaryKey val id: UUID = UUID.randomUUID(),
+                var name: String = "EMPTY_NAME", var race: Race = Dwarf(), var _class: Class = Cleric(), var background: Background = Acolyte(),
                 var level: Int = 1, var playerName: String = "EMPTY_PLAYER_NAME", var alignment: String = "NN", var experience: Int = 0,
                 var strAS: Int = 0, var dexAS: Int = 10, var constAS: Int = 12, var intAS: Int = 10, var wisAS: Int = 10, var charAS: Int = 12,
                 var inspiration: Int = 0, var profBonus: Int = 0, var passivePerception: Int = 0,
                 var strST: Int = 0, var dexST: Int = 0, var constST: Int = 0, var intST: Int = 0, var wisST: Int = 0, var charST: Int = 0,
                 var armorClass: Int = 10, var initiative: Int = 0, var speed: Int = 30, val maxHP: Int = 5, var hitDice: String = "1d6",
                 var deathSaveSuccesses: Int = 0, var deathSaveFailures: Int = 0,
-                var attacks: MutableList<MutableList<String>> = mutableListOf(mutableListOf("")), var spells: MutableList<MutableList<String>> = mutableListOf(mutableListOf("")),
-                var languages: MutableList<String> = mutableListOf(""), var proficiencies: MutableList<String> = mutableListOf(""),
-                var equipment: MutableList<MutableList<String>> = mutableListOf(mutableListOf("")), var gold: Int = 0,
-                var features: MutableList<MutableList<String>> = mutableListOf(mutableListOf(""))){
+                var attacks: List<List<String>> = listOf(listOf("")), var spells: List<List<String>> = listOf(listOf("")),
+                var languages: List<String> = listOf(""), var proficiencies: List<String> = listOf(""),
+                var equipment: List<List<String>> = listOf(listOf("")), var gold: Int = 0,
+                var features: List<List<String>> = listOf(listOf(""))){
 
 
 

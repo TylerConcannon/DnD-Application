@@ -59,7 +59,7 @@ class CreateCharacter : Fragment() {
         createCharacter.setOnClickListener {
 
             //val character = Character(nameText.text.toString(), levelSpinner.selectedItemPosition + 1, 0, getRace(raceSpinner.selectedItemPosition), getClass(classSpinner.selectedItemPosition))
-
+            //TODO: Save the character to the database
             view.findNavController().navigate(R.id.CreateCharacterToCharacterSheet)
         }
 
