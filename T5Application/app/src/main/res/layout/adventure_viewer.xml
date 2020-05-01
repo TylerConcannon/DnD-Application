@@ -142,6 +142,7 @@
         app:layout_constraintTop_toTopOf="@+id/monsterNameTextView" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/encounterRecyclerViewADV"
         android:layout_width="150dp"
         android:layout_height="100dp"
         android:layout_marginTop="8dp"

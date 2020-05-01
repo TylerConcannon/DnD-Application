@@ -11,6 +11,8 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 
 import com.t5application.R
 import com.t5application.dm_classes.Adventure
@@ -30,12 +32,17 @@ class AdventureViewer : Fragment() {
     private lateinit var doneButton: Button
     private lateinit var deleteButton: Button
 
+    private lateinit var encounterRecyclerView: RecyclerView
+
     private lateinit var adventure: Adventure
 
     private var encounters: ArrayList<Encounter> = ArrayList()
     private var towns: ArrayList<Town> = ArrayList()
 
+    private var adapter: EncounterAdapter? = EncounterAdapter(emptyList())
+
     private val adventureDetailViewModel: AdventureDetailViewModel by activityViewModels()
+    private val adventureListViewModel: AdventureListViewModel by activityViewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -65,7 +72,13 @@ class AdventureViewer : Fragment() {
         doneButton = view.findViewById(R.id.adventureDoneViewingButton)
         deleteButton = view.findViewById(R.id.deleteAdventureButton)
 
+        encounterRecyclerView = view.findViewById(R.id.encounterRecyclerViewADV)
+        encounterRecyclerView.layoutManager = LinearLayoutManager(context)
+        encounterRecyclerView.adapter = adapter
+
         activity?.title =  "Adventure"
+
+        encounterRecyclerView.adapter = EncounterAdapter(encounters)
 
         doneButton.setOnClickListener{
             view.findNavController().navigate(R.id.AdventureViewerToAdventureRecyclerView)
@@ -80,8 +93,7 @@ class AdventureViewer : Fragment() {
     }
 
 
-    @SuppressLint("SetTextI18n")
-    private fun updateUI(){ //TODO
+    private fun updateUI(){
         nameTextView.text = adventure.name
         lengthTextView.text = adventure.length
         typeTextView.text = adventure.questType
@@ -101,7 +113,7 @@ class AdventureViewer : Fragment() {
         }
 
         townNames.text = "${towns[0].townName} \n"
-        for(i in 0 until towns.size){
+        for(i in 1 until towns.size){
             townNames.text = "${townNames.text}${towns[i].townName} \n"
         }
     }
@@ -114,10 +126,56 @@ class AdventureViewer : Fragment() {
                     adventure -> adventure?.let {
                 this.adventure = adventure
                 updateUI()
+                encounterRecyclerView.adapter = EncounterAdapter(encounters)
             }
             }
         )
 
+    }
+
+    private inner class EncounterHolder(view: View): RecyclerView.ViewHolder(view), View.OnClickListener{
+        private val combatRatingTextView: TextView = itemView.findViewById(R.id.combatRatingTextView)
+        private val monsterNumberTextView: TextView = itemView.findViewById(R.id.monsterNumberTextView)
+        private val monstersTextView: TextView = itemView.findViewById(R.id.monstersTextView)
+        private lateinit var encounter: Encounter
+
+        init {
+            itemView.setOnClickListener(this)
+        }
+
+        fun bind(encounter: Encounter){
+            this.encounter = encounter
+            combatRatingTextView.text = ""
+            monsterNumberTextView.text = ""
+            monstersTextView.text = this.encounter.encMonsters[0]
+        }
+
+        override fun onClick(v: View?) {
+            enemyList.text = "${encounter.encMonsters[0]} \n"
+            for(i in 1 until encounter.encMonsters.size){
+                enemyList.text = "${enemyList.text}${encounter.encMonsters[i]} \n"
+            }
+            enemyWeapons.text = "${encounter.monsterWeapons[0]} \n"
+            for(i in 1 until encounter.monsterWeapons.size){
+                enemyWeapons.text = "${enemyWeapons.text}${encounter.monsterWeapons[i]} \n"
+            }
+        }
+    }
+
+    private inner class EncounterAdapter(var encs: List<Encounter>) : RecyclerView.Adapter<EncounterHolder>(){
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EncounterHolder {
+            val view = layoutInflater.inflate(R.layout.encounter_list_view, parent, false)
+            return EncounterHolder(view)
+        }
+
+        override fun getItemCount(): Int {
+            return encs.size
+        }
+
+        override fun onBindViewHolder(holder: EncounterHolder, position: Int) {
+            val enc = encs[position]
+            holder.bind(enc)
+        }
     }
 
 }

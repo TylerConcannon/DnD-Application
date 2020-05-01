@@ -44,8 +44,9 @@ class CharacterSheet : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        // TODO: Add navigation by ID from RecView
         character = Character()
+        val charID = characterDetailViewModel.idOfNavigation
+        characterDetailViewModel.loadCharacter(charID)
     }
 
     override fun onCreateView(
@@ -146,8 +147,15 @@ class CharacterSheet : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        updateUI()
-        // TODO: Observer live data conversion for updateUI
+        characterDetailViewModel.characterLiveData.observe(
+            viewLifecycleOwner,
+            androidx.lifecycle.Observer {
+                character -> character?.let {
+                this.character = character
+                updateUI()
+            }
+            }
+        )
     }
 
 }

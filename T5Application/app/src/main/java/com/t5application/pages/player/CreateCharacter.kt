@@ -10,8 +10,10 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
 import com.t5application.R
 import com.t5application.character_classes.Character
+import com.t5application.character_classes.backgrounds.*
 import com.t5application.character_classes.classes.*
 import com.t5application.character_classes.races.*
+import kotlin.math.floor
 
 
 class CreateCharacter : Fragment() {
@@ -27,6 +29,11 @@ class CreateCharacter : Fragment() {
 
     //TextBoxes
     private lateinit var nameText: EditText
+
+    private val characterDetailViewModel: CharacterDetailViewModel by activityViewModels()
+    private val characterListViewModel: CharacterListViewModel by activityViewModels()
+
+    private var character: Character = Character()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -58,8 +65,22 @@ class CreateCharacter : Fragment() {
 
         createCharacter.setOnClickListener {
 
+            character.name = nameText.text.toString()
+            character.race = getRace(raceSpinner.selectedItemPosition+1)
+            character._class = getClass(classSpinner.selectedItemPosition+1)
+            character.background = getBackground(backgroundSpinner.selectedItemPosition+1)
+            character.level = levelSpinner.selectedItemPosition+1
+            character.strAS = rollDice()
+            character.dexAS = rollDice()
+            character.constAS = rollDice()
+            character.wisAS = rollDice()
+            character.intAS = rollDice()
+            character.charAS = rollDice()
+
             //val character = Character(nameText.text.toString(), levelSpinner.selectedItemPosition + 1, 0, getRace(raceSpinner.selectedItemPosition), getClass(classSpinner.selectedItemPosition))
-            //TODO: Save the character to the database
+            characterDetailViewModel.saveCharacter(character)
+            characterListViewModel.characters.add(character)
+            characterDetailViewModel.idOfNavigation = character.id
             view.findNavController().navigate(R.id.CreateCharacterToCharacterSheet)
         }
 
@@ -108,5 +129,30 @@ class CreateCharacter : Fragment() {
             4 -> Wizard()
             else -> Cleric()
         }
+    }
+
+    private fun getBackground(bgInt: Int): Background {
+        return when (bgInt){
+            1 -> Acolyte()
+            2 -> Criminal()
+            3-> FolkHero()
+            4-> Noble()
+            5-> Sage()
+            else -> Soldier()
+        }
+    }
+
+    private fun rollDice(): Int{
+        val d1 = floor(Math.random() * 5 + 1)
+        val d2 = floor(Math.random() * 5 + 1)
+        val d3 = floor(Math.random() * 5 + 1)
+        val d4 = floor(Math.random() * 5 + 1)
+        val rolls = mutableListOf<Int>(d1.toInt(), d2.toInt(), d3.toInt(), d4.toInt())
+        rolls.removeAt(rolls.indexOf(rolls.min()))
+        var total = 0
+        for(i in 0 until 3){
+            total += rolls[i]
+        }
+        return total
     }
 }

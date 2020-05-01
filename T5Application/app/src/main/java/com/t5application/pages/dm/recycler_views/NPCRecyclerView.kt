@@ -90,7 +90,7 @@ class NPCRecyclerView : Fragment() {
     private inner class NPCHolder(view: View):RecyclerView.ViewHolder(view), View.OnClickListener{
         private val nameTextView: TextView = itemView.findViewById(R.id.nameTextViewNPC)
         private val raceTextView: TextView = itemView.findViewById(R.id.raceTextViewNPC)
-        private val occupationTextView: TextView = itemView.findViewById(R.id.raceTextViewNPC)
+        private val occupationTextView: TextView = itemView.findViewById(R.id.occupationTextViewNPC)
         private lateinit var npc: NPC
 
         init{
