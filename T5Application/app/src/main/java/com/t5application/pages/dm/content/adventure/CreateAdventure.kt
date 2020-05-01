@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Button
+import android.widget.EditText
 import android.widget.Spinner
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
@@ -30,6 +31,9 @@ class CreateAdventure : Fragment() {
     private lateinit var typeSpinner: Spinner
     private lateinit var encounterNumberSpinner: Spinner
 
+    //EditText
+    private lateinit var nameEditText: EditText
+
     private val adventureDetailViewModel: AdventureDetailViewModel by activityViewModels()
     private val adventureListViewModel: AdventureListViewModel by activityViewModels()
 
@@ -42,6 +46,7 @@ class CreateAdventure : Fragment() {
 
         activity?.title =  "Create Adventure"
 
+        nameEditText = view.findViewById(R.id.adventureNameEditText)
         lengthSpinner = view.findViewById(R.id.lengthSpinner)
         typeSpinner = view.findViewById(R.id.typeSpinner)
         encounterNumberSpinner = view.findViewById(R.id.encounterNumberSpinner)
@@ -58,35 +63,34 @@ class CreateAdventure : Fragment() {
         generate = view.findViewById(R.id.confirmAdventureButton)
 
 
-        //Logic
-        adventure.length = resources.getStringArray(R.array.townSizes).get(lengthSpinner.selectedItemPosition.toInt())
-        adventure.questType = resources.getStringArray(R.array.questType).get(typeSpinner.selectedItemPosition.toInt())
-
-        var terrain: Int = (1..4).random()
-        var cr: Int = (1..4).random()
-
-        if(cr == 1) cr = 50
-        else if(cr == 2) cr = 100
-        else if(cr == 3) cr = 700
-        else cr = 1000
-
-        for(i in 0 until encounterNumberSpinner.selectedItemPosition.toInt()) {
-            createEncounter((1..12).random(), terrain, cr)
-        }
-
-        for(i in 0..lengthSpinner.selectedItemPosition.toInt()){
-            createTown(i)
-        }
-        //End Logic
-
-
         generate.setOnClickListener {
+
+            adventure.name = nameEditText.text.toString()
+            adventure.length = resources.getStringArray(R.array.length).get(lengthSpinner.selectedItemPosition.toInt())
+            adventure.questType = resources.getStringArray(R.array.questType).get(typeSpinner.selectedItemPosition.toInt())
+
+            var terrain: Int = (1..4).random()
+            var cr: Int = (1..4).random()
+
+            if(cr == 1) cr = 50
+            else if(cr == 2) cr = 100
+            else if(cr == 3) cr = 700
+            else cr = 1000
+
+            for(i in 0 until encounterNumberSpinner.selectedItemPosition.toInt()) {
+                createEncounter((1..12).random(), terrain, cr)
+            }
+
+            for(i in 0..lengthSpinner.selectedItemPosition.toInt()){
+                createTown(i)
+            }
+
+            adventureDetailViewModel.saveAdventure(adventure)
+            adventureListViewModel.adventures.add(adventure)
+            adventureDetailViewModel.idOfNavigation = adventure.id
+
             view.findNavController().navigate(R.id.CreateAdventureToAdventureViewer)
         }
-
-        adventureDetailViewModel.saveAdventure(adventure)
-        adventureListViewModel.adventures.add(adventure)
-        adventureDetailViewModel.idOfNavigation = adventure.id
 
         return view
     }

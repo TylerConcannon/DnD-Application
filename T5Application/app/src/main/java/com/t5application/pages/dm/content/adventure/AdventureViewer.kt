@@ -32,8 +32,8 @@ class AdventureViewer : Fragment() {
 
     private lateinit var adventure: Adventure
 
-    private lateinit var encounters: ArrayList<Encounter>
-    private lateinit var towns: ArrayList<Town>
+    private var encounters: ArrayList<Encounter> = ArrayList()
+    private var towns: ArrayList<Town> = ArrayList()
 
     private val adventureDetailViewModel: AdventureDetailViewModel by activityViewModels()
 
@@ -73,13 +73,14 @@ class AdventureViewer : Fragment() {
 
         deleteButton.setOnClickListener{
             adventureDetailViewModel.deleteAdventure(adventure)
-            view.findNavController().navigate(R.id.encounterViewToEncounterRecyclerView)
+            view.findNavController().navigate(R.id.AdventureViewerToAdventureRecyclerView)
         }
 
         return view
     }
 
 
+    @SuppressLint("SetTextI18n")
     private fun updateUI(){ //TODO
         nameTextView.text = adventure.name
         lengthTextView.text = adventure.length
@@ -99,9 +100,9 @@ class AdventureViewer : Fragment() {
             towns.add(town)
         }
 
-        townNames.text = "${towns[0]} \n"
-        for(i in 1 until towns.size){
-            townNames.text = "${townNames.text}${towns[i]} \n"
+        townNames.text = "${towns[0].townName} \n"
+        for(i in 0 until towns.size){
+            townNames.text = "${townNames.text}${towns[i].townName} \n"
         }
     }
 

@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
@@ -84,7 +85,12 @@ class AdventureRecyclerView : Fragment() {
     }
 
     private inner class AdventureHolder(view: View): RecyclerView.ViewHolder(view), View.OnClickListener{
-        // set text views
+
+        private val nameTextView: TextView = itemView.findViewById(R.id.adventureNameTextView)
+        private val lengthTextView: TextView = itemView.findViewById(R.id.lengthTextView)
+        private val typeTextView: TextView = itemView.findViewById(R.id.typeTextView)
+        private val encTextView: TextView = itemView.findViewById(R.id.encounterNumberTextView)
+
         private lateinit var adventure: Adventure
 
         init {
@@ -93,6 +99,10 @@ class AdventureRecyclerView : Fragment() {
 
         fun bind(adventure: Adventure){
             this.adventure = adventure
+            nameTextView.text = adventure.name
+            lengthTextView.text = adventure.length
+            typeTextView.text = adventure.questType
+            encTextView.text = (adventure.encounterNames.size - 1).toString()
         }
 
         override fun onClick(v: View?) {
