@@ -10,7 +10,7 @@ class Adventure (@PrimaryKey val id: UUID = UUID.randomUUID(),
                  var length: String = "Short",
                  var questType: String = "Fetch") {
 
-    lateinit var encounterNames: List<String>
-    lateinit var encounterWeapons: List<String>
-    lateinit var townNames: List<String>
+    var encounterNames: List<String> = listOf()
+    var encounterWeapons: List<String> = listOf()
+    var townNames: List<String> = listOf()
 }

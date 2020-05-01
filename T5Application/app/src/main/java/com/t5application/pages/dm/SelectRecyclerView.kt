@@ -41,7 +41,7 @@ class SelectRecyclerView : Fragment() {
         }
 
         adventureButton.setOnClickListener {
-            //view.findNavController().navigate(R.id.SelectRecyclerViewToAdventureRecyclerView)
+            view.findNavController().navigate(R.id.SelectRecyclerViewToAdventureRecyclerView)
         }
 
         encounterButton.setOnClickListener {

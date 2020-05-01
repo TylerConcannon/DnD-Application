@@ -20,7 +20,7 @@ import kotlinx.android.synthetic.main.create_encounter.*
 class CreateAdventure : Fragment() {
 
     //Adventure
-    private lateinit var adventure: Adventure
+    private var adventure: Adventure = Adventure()
 
     //Buttons
     private lateinit var generate: Button
