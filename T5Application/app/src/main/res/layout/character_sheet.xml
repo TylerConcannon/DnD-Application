@@ -265,7 +265,7 @@
     <TextView
         android:id="@+id/profList"
         android:layout_width="0dp"
-        android:layout_height="90dp"
+        android:layout_height="40dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="32dp"
         android:text="blah\n\nblah\n\nblah"
@@ -286,7 +286,7 @@
     <TextView
         android:id="@+id/weaList"
         android:layout_width="0dp"
-        android:layout_height="90dp"
+        android:layout_height="40dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="32dp"
         android:text="blah\n\nblah\n\nblah"
@@ -332,12 +332,33 @@
     <TextView
         android:id="@+id/featList"
         android:layout_width="0dp"
-        android:layout_height="90dp"
+        android:layout_height="40dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="32dp"
         android:text="blah\n\nblah\n\nblah"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/featTextView"
         app:layout_constraintTop_toBottomOf="@+id/featTextView" />
+
+    <Button
+        android:id="@+id/characterDoneViewingButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Done Viewing"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/featList" />
+
+    <Button
+        android:id="@+id/characterDeleteButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Delete"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.7"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/characterDoneViewingButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

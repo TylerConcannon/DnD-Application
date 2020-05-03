@@ -112,9 +112,7 @@
         tools:layout="@layout/character_recycler_view" >
         <action
             android:id="@+id/CharacterRecyclerViewToCreateCharacter"
-            app:destination="@id/createCharacter"
-            app:popUpTo="@id/playerCharacterRecyclerView"
-            app:popUpToInclusive="false" />
+            app:destination="@id/createCharacter" />
         <action
             android:id="@+id/characterRecyclerViewToCharacterSheet"
             app:destination="@id/characterSheet"
@@ -135,7 +133,13 @@
         android:id="@+id/characterSheet"
         android:name="com.t5application.pages.player.CharacterSheet"
         android:label="character_sheet"
-        tools:layout="@layout/character_sheet" />
+        tools:layout="@layout/character_sheet" >
+        <action
+            android:id="@+id/CharacterSheetToPlayerCharacterRecyclerView"
+            app:destination="@id/playerCharacterRecyclerView"
+            app:popUpTo="@id/playerCharacterRecyclerView"
+            app:popUpToInclusive="true" />
+    </fragment>
     <fragment
         android:id="@+id/TownRecyclerView"
         android:name="com.t5application.pages.dm.recycler_views.TownRecyclerView"
