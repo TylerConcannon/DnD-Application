@@ -141,8 +141,6 @@ class CharacterSheet : Fragment() {
             charModTextView.text = character.charisma.toString()
         }
 
-        //TODO: Set up the lists
-
         profListTextView.text = "${character._class.proficiencies[0]} \n"
         for(i in 1 until character._class.proficiencies.size){
             profListTextView.text = "${profListTextView.text}${character._class.proficiencies[i]} \n"
@@ -153,10 +151,10 @@ class CharacterSheet : Fragment() {
             weaponsListTextView.text = "${weaponsListTextView.text}${character.attacks[i]} \n"
         }
 
-        featsListTextView.text = "${character.race.features[0][0] + character.race.features[0][1]} \n"
+        /*featsListTextView.text = "${character.race.features[0][0] + character.race.features[0][1]} \n"
         for(i in 1 until character.race.features.size){
             featsListTextView.text = "${featsListTextView.text}${character.race.features[i][0] + character.race.features[i][1]} \n"
-        }
+        }*/
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

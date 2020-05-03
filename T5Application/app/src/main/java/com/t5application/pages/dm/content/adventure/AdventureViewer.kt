@@ -72,7 +72,7 @@ class AdventureViewer : Fragment() {
         doneButton = view.findViewById(R.id.adventureDoneViewingButton)
         deleteButton = view.findViewById(R.id.deleteAdventureButton)
 
-        encounterRecyclerView = view.findViewById(R.id.encounterRecyclerViewADV)
+        encounterRecyclerView = view.findViewById(R.id.encounterRecyclerViewADV) as RecyclerView
         encounterRecyclerView.layoutManager = LinearLayoutManager(context)
         encounterRecyclerView.adapter = adapter
 
