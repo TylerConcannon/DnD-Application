@@ -163,14 +163,14 @@ class CharacterSheet : Fragment() {
         if(character._class.toString() == "Cleric"){
             profs = mutableListOf<String>(
                 "Light Armor", "Medium Armor", "Shields",
-                "Simple Weapons", "WisST", "CharST"
+                "Simple Weapons", "Wisdom Saving Throws", "Charisma Saving Throws"
             )
         }
         else if(character._class.toString() == "Fighter"){
             profs = mutableListOf<String>(
                 "All Armor", "Shields",
                 "Simple Weapons", "Martial Weapons",
-                "WisST", "CharST"
+                "Wisdom Saving Throws", "Charisma Saving Throws"
             )
         }
         else if(character._class.toString() == "Rogue"){
@@ -178,13 +178,13 @@ class CharacterSheet : Fragment() {
                 "Light Armor",
                 "Simple Weapons", "Hand Crossbows", "Longswords", "Rapiers", "Shortswords",
                 "Thieves' Tools",
-                "DexST", "IntST"
+                "Dexterity Saving Throws", "Intelligence Saving Throws"
             )
         }
         else{
             profs = mutableListOf<String>(
                 "Daggers", "Darts", "Slings", "Light Crossbows",
-                "Quarter Staffs", "WisST", "IntST"
+                "Quarter Staffs", "Wisdom Saving Throws", "Intelligence Saving Throws"
             )
         }
 
@@ -202,28 +202,33 @@ class CharacterSheet : Fragment() {
 
          feats = when(character.race.toString()){
             "Dwarf" -> mutableListOf(
-                mutableListOf("Darkvision", "You can see 30 feet further in dim light and can see in dark light as if it were dim, but with no color"),
-                mutableListOf("Dwarven Resilience", ""),
-                mutableListOf("Dwarven Combat Training", ""),
-                mutableListOf("Stonecunning", "")
+                mutableListOf("Darkvision", "You can see 30 feet further in dim light and can see in dark light as if it were dim, but with no color."),
+                mutableListOf("Dwarven Resilience", "You have advantage on Saving Throws against poison, and you have Resistance against poison damage."),
+                mutableListOf("Dwarven Combat Training", "You have proficiency with the Battleaxe, Handaxe, Light Hammer, and Warhammer."),
+                mutableListOf("Stonecunning", "Whenever you make an Intelligence (History) check related to the Origin of stonework, you are considered proficient in the History skill and add double your Proficiency Bonus to the check, instead of your normal Proficiency Bonus.")
             )
              "Elf" -> mutableListOf(
-                 mutableListOf("Darkvision", "You can see 30 feet further in dim light and can see in dark light as if it were dim, but with no color"),
-                 mutableListOf("Keen Senses", ""),
-                 mutableListOf("Fey Ancestry", ""),
-                 mutableListOf("Trance", "")
+                 mutableListOf("Darkvision", "You can see 30 feet further in dim light and can see in dark light as if it were dim, but with no color."),
+                 mutableListOf("Keen Senses", "You have proficiency in the Perception skill."),
+                 mutableListOf("Fey Ancestry", "You have advantage on Saving Throws against being Charmed, and magic can’t put you to sleep."),
+                 mutableListOf("Trance", "Elves don’t need to sleep. Instead, they meditate deeply, remaining semiconscious, for 4 hours a day. (The Common word for such meditation is “trance.”) While meditating, you can dream after a fashion; such dreams are actually mental exercises that have become reflexive through years of practice. After Resting in this way, you gain the same benefit that a human does from 8 hours of sleep.")
              )
              "Human" -> mutableListOf()
              else -> mutableListOf(
-                 mutableListOf("Lucky", ""),
-                 mutableListOf("Brave", ""),
-                 mutableListOf("Halfling Nimbleness", "")
+                 mutableListOf("Lucky", "When you roll a 1 on The D20 for an Attack roll, ability check, or saving throw, you can reroll the die and must use the new roll."),
+                 mutableListOf("Brave", "You have advantage on Saving Throws against being Frightened."),
+                 mutableListOf("Halfling Nimbleness", "You can move through the space of any creature that is of a size larger than yours.")
              )
         }
-
-        featsListTextView.text = "${feats[0][0] + feats[0][1]} \n"
-        for(i in 1 until feats.size){
-            featsListTextView.text = "${featsListTextView.text}${feats[i][0] + feats[i][1]} \n"
+        if(character.race.toString() != "Human") {
+            featsListTextView.text = "${feats[0][0]} :  ${feats[0][1]} \n\n"
+            for (i in 1 until feats.size) {
+                featsListTextView.text =
+                    "${featsListTextView.text}${feats[i][0]} :  ${feats[i][1]} \n\n"
+            }
+        }
+        else{
+            featsListTextView.text = "Humans have no feats"
         }
     }
 
