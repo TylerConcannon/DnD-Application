@@ -5,13 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
-import android.widget.EditText
-import android.widget.Spinner
-import android.widget.TextView
+import android.widget.*
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.findNavController
 import com.t5application.R
 import com.t5application.character_classes.Character
+import kotlinx.android.synthetic.main.character_recycler_view.view.*
 import kotlinx.android.synthetic.main.character_sheet.*
 
 class CharacterSheet : Fragment() {
@@ -40,6 +39,9 @@ class CharacterSheet : Fragment() {
     private lateinit var featsListTextView: TextView
 
     private lateinit var character: Character
+
+    private lateinit var deleteButton: Button
+    private lateinit var doneButton: Button
 
     private val characterDetailViewModel: CharacterDetailViewModel by activityViewModels()
 
@@ -80,7 +82,19 @@ class CharacterSheet : Fragment() {
         weaponsListTextView = view.findViewById(R.id.weaList)
         featsListTextView = view.findViewById(R.id.featList)
 
+        deleteButton = view.findViewById(R.id.DeleteCharacterButton)
+        doneButton = view.findViewById(R.id.characterDoneViewingButton)
+
         activity?.title =  "Character Sheet"
+
+        doneButton.setOnClickListener{
+            view.findNavController().navigate(R.id.CharacterSheetToPlayerCharacterRecyclerView)
+        }
+
+        deleteButton.setOnClickListener{
+            characterDetailViewModel.deleteCharacter(character)
+            view.findNavController().navigate(R.id.CharacterSheetToPlayerCharacterRecyclerView)
+        }
 
         return view
     }
@@ -143,20 +157,20 @@ class CharacterSheet : Fragment() {
 
         //TODO: Set up the lists
 
-        profListTextView.text = "${character._class.proficiencies[0]} \n"
+        /*profListTextView.text = "${character._class.proficiencies[0]} \n"
         for(i in 1 until character._class.proficiencies.size){
             profListTextView.text = "${profListTextView.text}${character._class.proficiencies[i]} \n"
-        }
+        }*/
 
         weaponsListTextView.text = "${character.attacks[0]} \n"
         for(i in 1 until character.attacks.size){
             weaponsListTextView.text = "${weaponsListTextView.text}${character.attacks[i]} \n"
         }
 
-        featsListTextView.text = "${character.race.features[0][0] + character.race.features[0][1]} \n"
+        /*featsListTextView.text = "${character.race.features[0][0] + character.race.features[0][1]} \n"
         for(i in 1 until character.race.features.size){
             featsListTextView.text = "${featsListTextView.text}${character.race.features[i][0] + character.race.features[i][1]} \n"
-        }
+        }*/
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
