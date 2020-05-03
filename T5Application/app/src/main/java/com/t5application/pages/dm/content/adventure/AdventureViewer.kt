@@ -103,7 +103,9 @@ class AdventureViewer : Fragment() {
             var encounter = Encounter()
             encounter.encMonsters = adventure.encounterNames[i].split("~~")
             encounter.monsterWeapons = adventure.encounterWeapons[i].split("~~")
-            encounters.add(encounter)
+            if(encounter.encMonsters[0] != ""){
+                encounters.add(encounter)
+            }
         }
 
         for (i in adventure.townNames.indices){
@@ -134,6 +136,7 @@ class AdventureViewer : Fragment() {
     }
 
     private inner class EncounterHolder(view: View): RecyclerView.ViewHolder(view), View.OnClickListener{
+
         private val combatRatingTextView: TextView = itemView.findViewById(R.id.combatRatingTextView)
         private val monsterNumberTextView: TextView = itemView.findViewById(R.id.monsterNumberTextView)
         private val monstersTextView: TextView = itemView.findViewById(R.id.monstersTextView)
@@ -144,10 +147,12 @@ class AdventureViewer : Fragment() {
         }
 
         fun bind(encounter: Encounter){
-            this.encounter = encounter
-            combatRatingTextView.text = ""
-            monsterNumberTextView.text = ""
-            monstersTextView.text = this.encounter.encMonsters[0]
+            if(encounter.encMonsters[0] != ""){
+                this.encounter = encounter
+                combatRatingTextView.text = ""
+                monsterNumberTextView.text = ""
+                monstersTextView.text = "Encounter"
+            }
         }
 
         override fun onClick(v: View?) {

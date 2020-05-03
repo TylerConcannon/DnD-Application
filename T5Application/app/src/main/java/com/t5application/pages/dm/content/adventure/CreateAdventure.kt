@@ -75,9 +75,10 @@ class CreateAdventure : Fragment() {
             if(cr == 1) cr = 50
             else if(cr == 2) cr = 100
             else if(cr == 3) cr = 700
-            else cr = 1000
+            else cr = 1800
 
-            for(i in 0 until encounterNumberSpinner.selectedItemPosition.toInt()) {
+            for(i in 0 until encounterNumberSpinner.selectedItemPosition + 1) {
+                println("Generated Encounter")
                 createEncounter((1..12).random(), terrain, cr)
             }
 
@@ -149,6 +150,8 @@ class CreateAdventure : Fragment() {
                     }
                 }
 
+                println("Added Encounter")
+
                 encounter.encMonsters = monsterNames
                 encounter.monsterWeapons = monsterWeapons
 
@@ -162,6 +165,7 @@ class CreateAdventure : Fragment() {
 
                 adventure.encounterNames += names + "::"
                 adventure.encounterWeapons += weapons + "::"
+                break
             }
         }
     }
