@@ -7,11 +7,16 @@ class Cleric: Class(){
         "Simple Weapons", "WisST", "CharST"
     )
     var Class.proficiencies: MutableList<String>
-        get() = localProficiencies
+        get() = mutableListOf<String>(
+            "Light Armor", "Medium Armor", "Shields",
+            "Simple Weapons", "WisST", "CharST"
+        )
         set(value) = TODO()
+
     var Class.baseHP: Int
         get() = 8
         set(value) = TODO()
+
     var Class.profBonus: Int
         get(){
             return when{

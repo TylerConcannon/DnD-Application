@@ -20,7 +20,7 @@ class Character(@PrimaryKey val id: UUID = UUID.randomUUID(),
                 var strST: Int = 0, var dexST: Int = 0, var constST: Int = 0, var intST: Int = 0, var wisST: Int = 0, var charST: Int = 0,
                 var armorClass: Int = 10, var initiative: Int = 0, var speed: Int = 30, val maxHP: Int = 5, var hitDice: String = "1d6",
                 var deathSaveSuccesses: Int = 0, var deathSaveFailures: Int = 0,
-                var attacks: List<List<String>> = listOf(listOf("")), var spells: List<List<String>> = listOf(listOf("")),
+                var attacks: List<String> = listOf(""), var spells: List<List<String>> = listOf(listOf("")),
                 var languages: List<String> = listOf(""), var proficiencies: List<String> = listOf(""),
                 var equipment: List<List<String>> = listOf(listOf("")), var gold: Int = 0,
                 var features: List<List<String>> = listOf(listOf(""))){
@@ -166,5 +166,4 @@ class Character(@PrimaryKey val id: UUID = UUID.randomUUID(),
             }
             return -6
         }
-
 }

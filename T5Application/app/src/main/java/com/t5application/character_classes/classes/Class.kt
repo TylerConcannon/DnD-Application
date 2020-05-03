@@ -7,7 +7,7 @@ abstract class Class{
     private var profBonus: Int = 0
     private var features: MutableList<String> = mutableListOf() //TODO dependant on level
     private var baseHP: Int = 0;
-    private var proficiencies: MutableList<String> = mutableListOf()
+    var proficiencies: MutableList<String> = mutableListOf()
     private var equipment: MutableList<MutableList<String>> = mutableListOf(mutableListOf()) // TODO choice
     private var spells: MutableList<MutableList<String>> = mutableListOf(mutableListOf()) // TODO choice
     private var cantrips: MutableList<MutableList<String>> = mutableListOf(mutableListOf()) // TODO choice

@@ -77,7 +77,13 @@ class CreateCharacter : Fragment() {
             character.intAS = rollDice()
             character.charAS = rollDice()
 
-            //val character = Character(nameText.text.toString(), levelSpinner.selectedItemPosition + 1, 0, getRace(raceSpinner.selectedItemPosition), getClass(classSpinner.selectedItemPosition))
+            var weapons: ArrayList<String> = ArrayList()
+            for(i in 0 until 2){
+                var ran = floor(Math.random() * 4)
+                weapons.add(resources.getStringArray(R.array.weapons)[ran.toInt()])
+            }
+            character.attacks = weapons
+
             characterDetailViewModel.saveCharacter(character)
             characterListViewModel.characters.add(character)
             characterDetailViewModel.idOfNavigation = character.id

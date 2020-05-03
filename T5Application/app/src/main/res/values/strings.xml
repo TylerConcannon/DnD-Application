@@ -50,6 +50,13 @@
         <item>20</item>
     </string-array>
 
+    <string-array name="weapons">
+        <item>ShortSword 1d6+4</item>
+        <item>Scimitar 1d8+5</item>
+        <item>GreatSword 2d6+3</item>
+        <item>GreatClub 2d8+4</item>
+    </string-array>
+
     <!-- Random NPC Lists -->
     <string-array name="occupations">
         <item>None</item>
@@ -81,7 +88,6 @@
         <item>Village</item>
         <item>Town</item>
         <item>City</item>
-        <item></item>
     </string-array>
 
     <string-array name="terrains">
