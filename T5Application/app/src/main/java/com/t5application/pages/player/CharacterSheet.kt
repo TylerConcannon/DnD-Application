@@ -198,10 +198,33 @@ class CharacterSheet : Fragment() {
             weaponsListTextView.text = "${weaponsListTextView.text}${character.attacks[i]} \n"
         }
 
-        /*featsListTextView.text = "${character.race.features[0][0] + character.race.features[0][1]} \n"
-        for(i in 1 until character.race.features.size){
-            featsListTextView.text = "${featsListTextView.text}${character.race.features[i][0] + character.race.features[i][1]} \n"
-        }*/
+        var feats = mutableListOf<MutableList<String>>()
+
+         feats = when(character.race.toString()){
+            "Dwarf" -> mutableListOf(
+                mutableListOf("Darkvision", "You can see 30 feet further in dim light and can see in dark light as if it were dim, but with no color"),
+                mutableListOf("Dwarven Resilience", ""),
+                mutableListOf("Dwarven Combat Training", ""),
+                mutableListOf("Stonecunning", "")
+            )
+             "Elf" -> mutableListOf(
+                 mutableListOf("Darkvision", "You can see 30 feet further in dim light and can see in dark light as if it were dim, but with no color"),
+                 mutableListOf("Keen Senses", ""),
+                 mutableListOf("Fey Ancestry", ""),
+                 mutableListOf("Trance", "")
+             )
+             "Human" -> mutableListOf()
+             else -> mutableListOf(
+                 mutableListOf("Lucky", ""),
+                 mutableListOf("Brave", ""),
+                 mutableListOf("Halfling Nimbleness", "")
+             )
+        }
+
+        featsListTextView.text = "${feats[0][0] + feats[0][1]} \n"
+        for(i in 1 until feats.size){
+            featsListTextView.text = "${featsListTextView.text}${feats[i][0] + feats[i][1]} \n"
+        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
