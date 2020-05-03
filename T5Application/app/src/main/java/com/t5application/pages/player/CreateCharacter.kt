@@ -76,6 +76,7 @@ class CreateCharacter : Fragment() {
             character.wisAS = rollDice()
             character.intAS = rollDice()
             character.charAS = rollDice()
+            character.proficiencies = character._class.proficiencies
 
             var weapons: ArrayList<String> = ArrayList()
             for(i in 0 until 2){

@@ -21,12 +21,12 @@ class Character(@PrimaryKey val id: UUID = UUID.randomUUID(),
                 var armorClass: Int = 10, var initiative: Int = 0, var speed: Int = 30, val maxHP: Int = 5, var hitDice: String = "1d6",
                 var deathSaveSuccesses: Int = 0, var deathSaveFailures: Int = 0,
                 var attacks: List<String> = listOf(""), var spells: List<List<String>> = listOf(listOf("")),
-                var languages: List<String> = listOf(""), var proficiencies: List<String> = listOf(""),
+                var languages: List<String> = listOf(""),
                 var equipment: List<List<String>> = listOf(listOf("")), var gold: Int = 0,
                 var features: List<List<String>> = listOf(listOf(""))){
 
 
-
+    var proficiencies: List<String> = _class.proficiencies
 
     var strength: Int = -6
         get() {

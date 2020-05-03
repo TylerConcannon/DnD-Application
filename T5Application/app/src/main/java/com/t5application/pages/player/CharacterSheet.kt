@@ -1,6 +1,7 @@
 package com.t5application.pages.player
 
 import android.os.Bundle
+import android.text.method.ScrollingMovementMethod
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -79,10 +80,13 @@ class CharacterSheet : Fragment() {
         charModTextView = view.findViewById(R.id.chaMod)
 
         profListTextView = view.findViewById(R.id.profList)
+        profListTextView.movementMethod = ScrollingMovementMethod()
         weaponsListTextView = view.findViewById(R.id.weaList)
+        weaponsListTextView.movementMethod = ScrollingMovementMethod()
         featsListTextView = view.findViewById(R.id.featList)
+        featsListTextView.movementMethod = ScrollingMovementMethod()
 
-        deleteButton = view.findViewById(R.id.DeleteCharacterButton)
+        deleteButton = view.findViewById(R.id.characterDeleteButton)
         doneButton = view.findViewById(R.id.characterDoneViewingButton)
 
         activity?.title =  "Character Sheet"
@@ -155,12 +159,39 @@ class CharacterSheet : Fragment() {
             charModTextView.text = character.charisma.toString()
         }
 
-        //TODO: Set up the lists
+        var profs = mutableListOf<String>()
+        if(character._class.toString() == "Cleric"){
+            profs = mutableListOf<String>(
+                "Light Armor", "Medium Armor", "Shields",
+                "Simple Weapons", "WisST", "CharST"
+            )
+        }
+        else if(character._class.toString() == "Fighter"){
+            profs = mutableListOf<String>(
+                "All Armor", "Shields",
+                "Simple Weapons", "Martial Weapons",
+                "WisST", "CharST"
+            )
+        }
+        else if(character._class.toString() == "Rogue"){
+            profs = mutableListOf<String>(
+                "Light Armor",
+                "Simple Weapons", "Hand Crossbows", "Longswords", "Rapiers", "Shortswords",
+                "Thieves' Tools",
+                "DexST", "IntST"
+            )
+        }
+        else{
+            profs = mutableListOf<String>(
+                "Daggers", "Darts", "Slings", "Light Crossbows",
+                "Quarter Staffs", "WisST", "IntST"
+            )
+        }
 
-        /*profListTextView.text = "${character._class.proficiencies[0]} \n"
-        for(i in 1 until character._class.proficiencies.size){
-            profListTextView.text = "${profListTextView.text}${character._class.proficiencies[i]} \n"
-        }*/
+        profListTextView.text = "${profs[0]} \n"
+        for(i in 1 until profs.size){
+            profListTextView.text = "${profListTextView.text}${profs[i]} \n"
+        }
 
         weaponsListTextView.text = "${character.attacks[0]} \n"
         for(i in 1 until character.attacks.size){
